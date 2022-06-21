@@ -348,3 +348,25 @@ String + 를 하면 새로운 주소로 할당됨 .
      그래서 모든 서브 클래스는 세부적으론 다르지만 같은 동작을 함.
 
 출처 : https://www.myanglog.com/Java%20interface%20vs%20abstract%20class%20-%20%EC%96%B8%EC%A0%9C%20%EB%AC%B4%EC%97%87%EC%9D%84%20%EC%93%B8%EA%B9%8C
+      https://preamtree.tistory.com/171
+
+
+
+#clone
+
+ 특징 :
+ 복제 메소드, 같은정보를 담는 또하나의 객체를 만들 수 있음. (얕은복사)
+ clone 은 Object 메소드 X - > Cloneable 인터페이스 추상 메소드 
+
+ ![img_32.png](img_32.png)  
+ 
+ 그래서 Cloneable 인터페이스를 구현 한 클래스만 사용이 가능하다.
+
+![img_31.png](img_31.png)
+
+비어있는 인터페이스 이지만 사용하는 이유는 복제가 가능하다는 것을 표시하기 위한 인터페이스.
+ 
+
+![img_30.png](img_30.png)
+
+
