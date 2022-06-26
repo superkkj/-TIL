@@ -1,13 +1,12 @@
 # 컬렉션
 
-![img_8.png](img_8.png) 
-
+![](img/img_8.png)
  ## 동기화된 컬렉션 vs 병렬 컬렉션
 
  동기화된 컬렉션 클래스는 내부 변수에 접근하는 통로를 일련화 Thread Safe But 동시사용시 상담 부분 손해 병렬 컬렉션은 이와 반대. (전체적인 성능 향상)
  이 클래스들은 모두 public으로 선언된 모든 메소드를 클래스 내부에 캡슐화해 내부의 값을 한 스레드만 사용하게함.
 
-![img_11.png](img_11.png)
+![](img/img_11.png)
 
  병렬 컬렉션은 여러 스레드가 동시에 컬렉션에 접근 가능 
 
@@ -43,7 +42,7 @@
 
    1-1  LinkedList
 
-  ![img_19.png](img_19.png)
+![](img/img_19.png)
    
    노드 간에 연결을 통해 리스트로 구현된 객체 . 순차접근만 가능. (탐색시 시간이 많이 소요된다.) randomAccess 불가능
    AbstractSequentialList를 상속함 .
@@ -69,8 +68,7 @@
 
  3. Map
 
-![img_9.png](img_9.png)
- 
+ ![](img/img_9.png)
  키 , 값 쌍으로 묶어서 컬렉션 구현.
   
   3-1 : HashMap 
@@ -91,8 +89,7 @@
 
  4. Stack 
 
-![img_10.png](img_10.png) 
-
+![](img/img_10.png)
    List 인터페이스를 구현한 클래스 (ArrayList,LinekdList)
    LIFO 구현한 리스트인 stack!  또다른 방법으론 ArrayDeque도 있지만 (속도빠름) 스레드세이브 하지 않다.
    
@@ -106,12 +103,9 @@
  
  stack 클래스보다 빠르고 , Queue 보다 빠름.
 
-![img_12.png](img_12.png)
-
+![](img/img_12.png)
  synchronized 장식해 만들수 있다.
-
-![img_13.png](img_13.png)
-
+![](img/img_13.png)
  5. Queue 
 
   FIFO  
