@@ -41,6 +41,8 @@ final Class는 하위 분류할 수 없다.
 
 ![](img/img_35.png)
 
+![](img/stack heap.png)
+
 int , bollean) 원시타입은 Stack 영역에 그대로 올라가지만, 참조 변수를 가지고 있는 타입 들은 heap영역에 저장하고 그 주소값을 Stack영역에 가지고 있음
 
 
