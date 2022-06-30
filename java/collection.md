@@ -611,7 +611,7 @@ https://duooo-story.tistory.com/20
 Stack 
 
 ![](img/img_10.png)
-   List 인터페이스를 구현한 클래스 (ArrayList,LinekdList)
+
    LIFO 구현한 리스트인 stack!  또다른 방법으론 ArrayDeque도 있지만 (속도빠름) 스레드세이브 하지 않다.
    
  특징 : 시스템 해킹에서 버퍼플로우 취약점을 이용한 공격 할 때 스택 메모리의 영역에서 함.
@@ -619,6 +619,38 @@ Stack
 
  + 자바에서 잘못설계된듯, LIFO 구조 인대 Vector 클래스를 확장하면 중간에서 데이터 삽입 삭제를 하기 때문 , 초기용량 설정 불가능 
    그래서 ArrayDeque 사용하는게 더났다. 
+
+![](img/stack1.png)
+
+#### 공식 문서
+
+클래스 는 Stack객체의 LIFO(후입 선출) 스택을 나타냅니다. 
+벡터를 스택으로 처리할 수 있는 5가지 작업으로 Vector 클래스를 확장 합니다. 
+일반적인 푸시 및 팝 작업은 물론 스택의 맨 위 항목을 엿보는 방법, 스택이 비어 있는지 테스트하는 방법 , 스택에서 항목을 검색 하고 얼마나 멀리 있는지 검색하는 방법이 제공됩니다. 위에서부터입니다.
+스택이 처음 생성되면 항목이 포함되지 않습니다.
+
+보다 완전하고 일관된 LIFO 스택 작업 세트는 Deque이 클래스보다 우선적으로 사용해야 하는 인터페이스 및 해당 구현에 의해 제공됩니다. 예를 들어:
+
+Deque<Integer> stack = new ArrayDeque<Integer>();
+
+사용 되는 곳?
+
+마지막 등록된 것을 먼저 사용하던가,
+웹브라우저 방문기록 ,뒤로가기
+실행 취소
+역순 출력
+수식의 괄호 검사 (연산자 우선순위 표현)
+후위표기법 계산,
+OS , 시스템 스택 : 프로그램 호출 순서와 복귀 순서는 반댕기 때문에  가장 나중에 호출된 함수가 제일 먼저 실행 됨.
+Compiler , JVM
+
+1. stack은 추상 자료형이라 ArrayList 와 LinkedList 를 구현 방법이 있다.
+2. stack은 후입 선출이어야 하며 중간에 Index를 가져와서 제거하거나 추가하면 안돼는데 ArrayList를 상속 받아 사용 하기 때문에
+   stack객체를 만들어도 ArrayList 메소드를 사용 할수 있다. 그래서 구조적 결함이 있다.
+3. 그래서 보완을 하려면 완전한 LIFO stack 을 사용하기 위해 Deque<Integer> stack = new ArrayDeque(Integer>();  Deque  인터페이스와 ArrayDeque 활용하는것이 바람직하다.
+
+출처 : https://iamheesoo.github.io/blog/java-stack01
+
    
  + 4-1: ArrayDeque
  
