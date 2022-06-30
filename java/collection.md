@@ -426,14 +426,17 @@ Map의 재귀 순회를 수행하는 일부 Map 작업은 Map가 직접 또는 �
 ![](img/Map.png)
 
 
-1. map?이라고 지칭한 이유? match랑 비슷
-2. Key는 고유한값 중복 X value는 중복가능 
-3. 검색이 빠르다 , 인덱스가 없어 Iterator 사용 
+1. map?이라고 지칭한 이유? match랑 비슷 
+2. 연관배열 , 키와 값을 쌍으로 저장하기 위한 구조.
+3. Key는 고유한값 중복 X value는 중복가능 
+4. 검색이 빠르다 , 인덱스가 없어 Iterator 사용 
 
   3-1 : HashMap 
    
    key 와 value를 하나의 entry로 저장. , 해시 알고리즘으로 검색속도 빠룸 (멀티스레드에서는 HashTable 사용) 
    -> 기존 코드와 호환성을 위해 남아 있음 HashMap 사용하는게 낫다.
+
+Entry = 자바 공식 문서에서는 키와 값으로 구성되는 데이터 (Mapping 이라고 함)
 
 
 Map 인터페이스 의 해시 테이블 기반 구현 . 이 구현은 모든 선택적 맵 작업을 제공하고 null 값과 null 키를 허용합니다. 
@@ -479,6 +482,7 @@ Fail-fast iterator 는 최선을 다해 ConcurrentModificationException 을 발�
 13. 키에 대한  해시 값을 사용하여 값을 저장하고 조회, 키-값 쌍의 개수에 따라 동적으로 크기가 증가하는 associate array (Map,Dictionary,Symbol Table)
 14. 동일하지 않는 X,Y 객 체가 있을시 X.equals(Y) = false , X.hashCode != Y.hashCode()가 같지 않다면 이때 사용하는 해시함수는 완전한 해시 함수 라고 함 
 15. (허나 완전한 해시 함수 제작은 불가능  String , POJO에 대해) 완전한 해시 함수 제작 불가능 (ex : Boolean , Integer,Long,Double , Number객체) 값 자체를 해시값으로 사용할 수 있기때문에 완전한 해시 함수 대상으로 삼을 수 있다.
+16. 순회를 할때 순서가 보장되어 있지 않기 때문에 무작위로 출력된다.
 
   ![](img/hashMap2.png)
 
@@ -578,7 +582,33 @@ Fail-fast iterator 는 최선을 다해 ConcurrentModificationException 을 발�
 이 클래스의 모든 컬렉션 보기 메서드에서 반환된 컬렉션의 spliterator 메서드에서 반환된 분할자는 late-binding , fail-fast 및 추가로 report Spliterator.ORDERED입니다.
 
 
- 4. Stack 
+1. 삽입한 순서대로 데이터 저장 (Hash Map 보완) 
+2. doubley-linked-List로 삽입한 값들을 관리, 
+3. 키 - 값 쌍이필요하다 (사진을 찍은 시간과 같은) , 전체 크기를 알지못함( 실시간 동영상을 찍으므로 전체 프레임 크기가 변할 가능성 잇다) , 순서를 알아야한다 (사진을 찍은 순서대로 동영상을 변환)
+4. 내부 구현된 access-order false(Insertion-order 입력순으로 key저장) 로 기본 값 / true : 최근에 접근하 element를 가장 마지막의 표기 .
+5. loadFactor : 0.75  accessOrder : true 시 순서모드로 넘김 
+
+출처 : https://sabarada.tistory.com/120?category=826240 , https://medium.com/@igniter.yoo/java-linkedhashmap-%EC%88%9C%EC%84%9C%EB%A5%BC-%EC%9C%A0%EC%A7%80%ED%95%98%EB%8A%94-%ED%95%B4%EC%8B%9C%EB%A7%B5-11a7846d8893
+https://duooo-story.tistory.com/20
+
+![](img/linkedHashMap2.png)
+
+
+### Doble Linked List
+
+![](img/DoubleLinkedList1.png)
+
+노드와 노드가 서로 양방향 연결로 되있다.
+
+1. 양방향 탐색이 가능해 (Ex  )
+
+![](img/DoubleLinkedList2.png)
+
+2. 단점으로는 이전 노드를 지정하기 위해 변수를 더사용해 메모리를 더많이 사용하고 구현이 더 복잡해 진다.
+   허나 장점이 더많아 이중 연결리스트를 자주 사용 함.
+이런식으로 가능
+
+Stack 
 
 ![](img/img_10.png)
    List 인터페이스를 구현한 클래스 (ArrayList,LinekdList)
