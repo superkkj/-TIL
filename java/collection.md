@@ -125,14 +125,13 @@ fail-fast 방식 보충
 
 ### ArrayList(int initalCapacity)
 
-![](img/ArrayList(int initialCapacity.png)
+![](img/ArrayList int initialCapacity.png)
 
 초기 용량이 주어지면 그만큼 사이즈를 가진 배열 생성
 
 ### ArrayList(Collection< extend> c)
 
-![](img/ArrayList(Collection< extend> c.png)
-
+![](img/ArrayList Collection extend c.png)
 Collection 이 주어지면 같은 사이즈를 갖는 배열 생성하고 값을 복사함
 
 ![](img/newCapacity.png)
@@ -188,7 +187,7 @@ ArrayList랑 비슷하다.
 예시 사진
 ![](img/LinkedListExample.png)
 
-직원이 늘어도 상관이없지만 3번째 사무실찾으려면 1번빼 에서 2번째 ㅇ런식으로 찾아가야 됨.. 몇 번째 엘리먼트에요? 느림..
+직원이 늘어도 상관이없지만 3번째 사무실찾으려면 1번빼 에서 2번째 이런식으로 찾아가야 됨.. 몇 번째 엘리먼트에요? 느림..
 엘리먼트들을 노드(마디 , 교점) , 버텍스(정점,꼭지점) 이라 명칭함.
 
 
@@ -495,10 +494,7 @@ Fail-fast iterator 는 최선을 다해 ConcurrentModificationException 을 발�
   
    이진 검색 트리 형태 저장, 데이터 추가나 제거 기본동작이 빠름  Key의 오름차순으로 저장.
 
-  3-2 : LinkedHashMap
   
-   입력된 순서대로 데이터를 저장하는 
-
 #### 공식문서
 
 Red-Black 트리 기반 NavigableMap구현. Map는 사용되는 생성자에 따라 키 의 자연스러운 순서Comparator 에 따라 또는 Map 생성 시 제공된 에 따라 정렬 됩니다.
@@ -535,6 +531,11 @@ Entry.setValue . (그러나 put를 사용하여 연결된 맵의 매핑을 변�
 5. 동기화를 지원하지 않아 스레드로부터 불안전함.
 
 출처 : https://ko.myservername.com/
+
+
+3-2 : LinkedHashMap
+
+입력된 순서대로 데이터를 저장하는
 
 #### LinkedHashMap
 
