@@ -117,3 +117,32 @@ ex) 커넥션 풀 종료 , 임시파일 삭제 , 소켓 종료 등등..
 
 
 
+##  try-with-resource
+
+예외 발생 여부 상관없이 리소스 객체(데이터를 읽고 쓰는 객체)의 Close()메소드를 호출해 안전하게 리소스 닫아줌
+리소스 객체는 AutoCloseable 인터페이스를 구현해야됨. (자바 7 부터 지원)
+
+![](img/try-with-resource.png)
+
+
+![](img/try-with-resource.png2.png)
+
+
+기존에는 finally 블럭까지 추가해 null체크를 하고 다시 닫아주고 예외 코드를 추가해줬는데
+
+try-with-resource 코드로 작성하면서 좀더 간결해지고 close() 메소드를 작성하지 않는 실수를 예방 할 수 있음.
+
+만약 close를 깜빡했다면 메모리를 과부하 시켜 서버에 무리를 줄 수 있는 등 문제가 야기 될 수 있다.
+
+## AutoCloseAble
+
+닫힐 때까지 리소스(예: 파일 또는 소켓 핸들)를 보유할 수 있는 개체입니다. 
+AutoCloseable 객체의 close() 메서드는 리소스 사양 헤더에 객체가 선언된 try-with-resources 블록을 종료할 때 자동으로 호출됩니다. 
+이 구성은 리소스 소진 예외 및 발생할 수 있는 오류를 방지하여 신속한 릴리스를 보장합니다.
+
+1. AutoCloseable 에는 close()메소드가 정의 되어있어 try-with-resource는 AutoCloseable 구현체의 close 메소드를 자동으로 호출
+
+
+![](img/AutoCloseable1.png)
+
+출처 : https://veneas.tistory.com/entry/Java-try-with-resource-AutoCloseable
