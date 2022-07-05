@@ -98,6 +98,21 @@ ex) NullPointer , IllegalArgument , IndexOutOfBoundException , SystemException
 예외를 잡아서 다른 예외로.
 좀 더 명확하게 인지 할 수 있도록 돕는다 (어떤 예외인지 알아야 처리가 수월하니깐)
 
+
+#### 일반적인 예외 동작.
+
+
+try-catch 문에서 예외가 발생시.
+해당 문을 빠져나간후 다음 해당 구분 다음 문장부터 수행. (catch 블럭에 발생한 예외가 일치하는경우)
+
+발생한 예외와 일치하는 catch블럭이 없는경우  예외처리되지 못하고 종료
+
+finally 사용하면 예외 발생여부와 상관없이 무조건 수행 되어야 할 로직이 있을 경우 사용하는 블럭이다.
+
+ex) 커넥션 풀 종료 , 임시파일 삭제 , 소켓 종료 등등..
+
+
+
 출처 : https://mungto.tistory.com/315 , https://www.nextree.co.kr/p3239/
 
 
