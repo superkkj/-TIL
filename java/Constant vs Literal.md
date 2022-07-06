@@ -24,8 +24,8 @@
 
 * 타입이 안전하지 않다.
 
-![img_5.png](img_5.png)![img_4.png](img_4.png)
-
+![](img/Constant vs Literal/img_4.png)
+![](img/Constant vs Literal/img_5.png)
 
 오렌지를 건네야 할 메서드에 사과를 보내 고 동등 연산자(==)로 비교하더라도 컴파일러는 아무런 경고 메시지를 출력하 지않는다.
 
