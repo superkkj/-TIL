@@ -20,17 +20,12 @@ final Class는 하위 분류할 수 없다.
 많은 Java 표준 라이브러리 클래스는 최종 버전입니다.
 
 
-![img.png](img.png)
-
+![](img/String/String1.png)
 
 
  1. 메서드 및 변수에 사용되는 수정자. final 키워드 사용시 본질적으로 상수가 됨으로 수정이 안됀다.
  2. 변수의 참조주소는 변경될 수 없다
  3. 하지만 상태는 변경 할 수 있다 (setter)
-
-![img.png](img.png)
-
-
 
 
 ## immutable
@@ -39,7 +34,7 @@ final Class는 하위 분류할 수 없다.
 
 
 
-![](img/img_35.png)
+![](img/final vs Immutable/StackHeap.png)
 
 ![](img/stack heap.png)
 
@@ -48,16 +43,13 @@ int , bollean) 원시타입은 Stack 영역에 그대로 올라가지만, 참조
 
  2. 대표적을 String , Integer , Boolean
 
-![img_2.png](img_2.png)
-![img_3.png](img_3.png)
-
-
-
+![](img/final vs Immutable/img_2.png)
+![](img/final vs Immutable/img_3.png)
 
 
 ++ 지식 String 자료를 찾아보면서.. 
 
-![img_1.png](img_1.png)
+![](img/final vs Immutable/img_1.png)
 
 String + 를 하면 새로운 주소로 할당됨 .
 그리고 String은 참조 주소값이기 때문에 == 보단 equlas로 비교하는게 맞다.

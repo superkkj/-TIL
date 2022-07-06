@@ -2,8 +2,7 @@
 # final List vs Not final List
 
 
-![img_4.png](img_4.png)
-
+![](img/FinalList notFinal List/img_4.png)
  ## final List
 
  final을 선언함으로서 참조 주소는 변경이 불가능하다. 대신 상태를 바꿀수 있어 add ,remove 는 ! 가능
