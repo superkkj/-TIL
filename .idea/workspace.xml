@@ -1,0 +1,411 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="6067df27-51a0-4666-bb94-adeda5f59b6a" name="Changes" comment="ignore 추가 및 String">
+      <change afterPath="$PROJECT_DIR$/.idea/git_toolbox_prj.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/java/img/String/String2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/java/img/String/String3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/java/img/String/String4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/String.md" beforeDir="false" afterPath="$PROJECT_DIR$/java/String.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/literals.md" beforeDir="false" afterPath="$PROJECT_DIR$/java/literals.md" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
+  <component name="DefaultGradleProjectSettings">
+    <option name="isMigrated" value="true" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="GitToolBoxStore">
+    <option name="projectConfigVersion" value="4" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="2" />
+  </component>
+  <component name="ProjectId" id="2ALP2lH9QIqjAtvnCtO2WN67OPs" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="abbreviatePackageNames" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/java" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/java" />
+      <recent name="$PROJECT_DIR$/java/img/final vs Immutable" />
+      <recent name="$PROJECT_DIR$/java/img" />
+      <recent name="$PROJECT_DIR$/1주차" />
+      <recent name="$PROJECT_DIR$/2주차" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/java/img/String" />
+      <recent name="$PROJECT_DIR$/java/img/iterable" />
+      <recent name="$PROJECT_DIR$/java/img/FinalList notFinal List" />
+      <recent name="$PROJECT_DIR$/java/img/final vs Immutable" />
+      <recent name="$PROJECT_DIR$/java/img" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6067df27-51a0-4666-bb94-adeda5f59b6a" name="Changes" comment="" />
+      <created>1654785690200</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1654785690200</updated>
+      <workItem from="1654785692464" duration="2585000" />
+      <workItem from="1654834757170" duration="3833000" />
+      <workItem from="1655212128687" duration="6357000" />
+      <workItem from="1655477515535" duration="36000" />
+      <workItem from="1655478401031" duration="12651000" />
+      <workItem from="1655733955677" duration="1074000" />
+      <workItem from="1655788728292" duration="12241000" />
+      <workItem from="1655906123875" duration="6402000" />
+      <workItem from="1655914778204" duration="2624000" />
+      <workItem from="1655956488924" duration="708000" />
+      <workItem from="1655957218377" duration="4333000" />
+      <workItem from="1656041170866" duration="6977000" />
+      <workItem from="1656338200376" duration="824000" />
+      <workItem from="1656340955032" duration="6982000" />
+      <workItem from="1656418181144" duration="92000" />
+      <workItem from="1656418404280" duration="8204000" />
+      <workItem from="1656509171487" duration="58000" />
+      <workItem from="1656509341725" duration="682000" />
+      <workItem from="1656510033922" duration="16492000" />
+      <workItem from="1656859201845" duration="6739000" />
+      <workItem from="1656920254462" duration="11462000" />
+      <workItem from="1657024104041" duration="5435000" />
+      <workItem from="1657086797129" duration="137000" />
+      <workItem from="1657086955597" duration="8900000" />
+    </task>
+    <task id="LOCAL-00001" summary="오늘부터시작 공부!">
+      <created>1654789370800</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1654789370800</updated>
+    </task>
+    <task id="LOCAL-00002" summary="상속  디스크 vs 메모리 추가.">
+      <created>1654875573305</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1654875573305</updated>
+    </task>
+    <task id="LOCAL-00003" summary="상속  디스크 vs 메모리 추가.">
+      <created>1655305997337</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1655305997337</updated>
+    </task>
+    <task id="LOCAL-00004" summary="공부내용추가">
+      <created>1655480599861</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1655480599861</updated>
+    </task>
+    <task id="LOCAL-00005" summary="공부내용추가">
+      <created>1655653227865</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1655653227865</updated>
+    </task>
+    <task id="LOCAL-00006" summary="공부내용추가">
+      <created>1655738409997</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1655738409997</updated>
+    </task>
+    <task id="LOCAL-00007" summary="공부내용추가">
+      <created>1655792124781</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1655792124781</updated>
+    </task>
+    <task id="LOCAL-00008" summary="공부내용추가">
+      <created>1655798383076</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1655798383076</updated>
+    </task>
+    <task id="LOCAL-00009" summary="공부내용추가">
+      <created>1655813759892</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1655813759892</updated>
+    </task>
+    <task id="LOCAL-00010" summary="공부내용추가">
+      <created>1655814656158</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1655814656158</updated>
+    </task>
+    <task id="LOCAL-00011" summary="세분화작업">
+      <created>1655907668920</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1655907668920</updated>
+    </task>
+    <task id="LOCAL-00012" summary="정리및 내용추가">
+      <created>1655970458141</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1655970458141</updated>
+    </task>
+    <task id="LOCAL-00013" summary="정리및 내용추가">
+      <created>1656259216662</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1656259216662</updated>
+    </task>
+    <task id="LOCAL-00014" summary="ArrayList 공식문서 추가">
+      <created>1656344877979</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1656344877979</updated>
+    </task>
+    <task id="LOCAL-00015" summary="링크드리스트 내용추가">
+      <created>1656426996573</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1656426996573</updated>
+    </task>
+    <task id="LOCAL-00016" summary="final vs immutable 사진 수정">
+      <created>1656427330945</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1656427330945</updated>
+    </task>
+    <task id="LOCAL-00017" summary="링크트리스트해쉬 셋 정리">
+      <created>1656511644497</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1656511644497</updated>
+    </task>
+    <task id="LOCAL-00018" summary="map 내용 추가">
+      <created>1656521354675</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1656521354675</updated>
+    </task>
+    <task id="LOCAL-00019" summary="map정리">
+      <created>1656574917649</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1656574917649</updated>
+    </task>
+    <task id="LOCAL-00020" summary="스택 내용추가">
+      <created>1656576655558</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1656576655558</updated>
+    </task>
+    <task id="LOCAL-00021" summary="원형 어레이큐">
+      <created>1656859945552</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1656859945553</updated>
+    </task>
+    <task id="LOCAL-00022" summary="데큐 추가">
+      <created>1656865493137</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1656865493137</updated>
+    </task>
+    <task id="LOCAL-00023" summary="컬렉션정리">
+      <created>1656920264477</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1656920264477</updated>
+    </task>
+    <task id="LOCAL-00024" summary="exception">
+      <created>1656953348264</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1656953348265</updated>
+    </task>
+    <task id="LOCAL-00025" summary="exception">
+      <created>1657006824876</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1657006824876</updated>
+    </task>
+    <task id="LOCAL-00026" summary="AutoCloseable">
+      <created>1657024228772</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1657024228772</updated>
+    </task>
+    <task id="LOCAL-00027" summary="effetive java">
+      <created>1657025985735</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1657025985735</updated>
+    </task>
+    <task id="LOCAL-00028" summary="effetive java">
+      <created>1657026267442</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1657026267442</updated>
+    </task>
+    <task id="LOCAL-00029" summary="ignore 추가 및 String">
+      <created>1657087104847</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1657087104847</updated>
+    </task>
+    <task id="LOCAL-00030" summary="ignore 추가 및 String">
+      <created>1657087221870</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1657087221870</updated>
+    </task>
+    <task id="LOCAL-00031" summary="ignore 추가 및 String">
+      <created>1657087275769</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1657087275769</updated>
+    </task>
+    <task id="LOCAL-00032" summary="리터럴 정보 추가">
+      <created>1657088903737</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1657088903737</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="6a788b14-fa2b-44b1-8268-88b7d3b37ce4">
+          <value>
+            <State>
+              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="roots">
+                    <value>
+                      <list>
+                        <option value="$PROJECT_DIR$" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="OPEN_GENERIC_TABS">
+      <map>
+        <entry key="6a788b14-fa2b-44b1-8268-88b7d3b37ce4" value="TOOL_WINDOW" />
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="오늘부터시작 공부!" />
+    <MESSAGE value="상속  디스크 vs 메모리 추가." />
+    <MESSAGE value="공부내용추가" />
+    <MESSAGE value="세분화작업" />
+    <MESSAGE value="정리및 내용추가" />
+    <MESSAGE value="ArrayList 공식문서 추가" />
+    <MESSAGE value="링크드리스트 내용추가" />
+    <MESSAGE value="final vs immutable 사진 수정" />
+    <MESSAGE value="링크트리스트해쉬 셋 정리" />
+    <MESSAGE value="map 내용 추가" />
+    <MESSAGE value="map정리" />
+    <MESSAGE value="스택 내용추가" />
+    <MESSAGE value="원형 어레이큐" />
+    <MESSAGE value="데큐 추가" />
+    <MESSAGE value="컬렉션정리" />
+    <MESSAGE value="exception" />
+    <MESSAGE value="AutoCloseable" />
+    <MESSAGE value="effetive java" />
+    <MESSAGE value="ignore 추가 및 String" />
+    <MESSAGE value="리터럴 정보 추가" />
+    <option name="LAST_COMMIT_MESSAGE" value="리터럴 정보 추가" />
+  </component>
+</project>

@@ -6,6 +6,10 @@
 
 리터럴은 모든 기본 유형 변수에 할당할 수 있습니다.
 
+ex) String a = "Example";
+상수 : 변하지 않는 변수 == 위 예시의 a 의미
+리터럴 : 변하지 않는 데이터 == 위 예시의 "Example" 의미
+
 ![](img/Literals/literals1.png)
 
 byte, int, long, short는 십진수(base 10), 16진수(base 16) 또는 8진수(base 8) 숫자 체계로도 표현할 수 있습니다.
@@ -55,4 +59,6 @@ Java와 마찬가지로 String쿼리 언어의 문자열 리터럴은 유니코�
 
 
 출처 : https://docs.oracle.com/cd/E19798-01/821-1841/bnbuv/index.html
+
+
 
