@@ -1,12 +1,12 @@
 # 컬렉션
 
-![](img/img_8.png)
+![](img/Collection/collection1.png)
  ## 동기화된 컬렉션 vs 병렬 컬렉션
 
  동기화된 컬렉션 클래스는 내부 변수에 접근하는 통로를 일련화 Thread Safe But 동시사용시 상담 부분 손해 병렬 컬렉션은 이와 반대. (전체적인 성능 향상)
  이 클래스들은 모두 public으로 선언된 모든 메소드를 클래스 내부에 캡슐화해 내부의 값을 한 스레드만 사용하게함.
 
-![](img/img_11.png)
+![](img/Collection/collection2.png)
 
  병렬 컬렉션은 여러 스레드가 동시에 컬렉션에 접근 가능 
 
@@ -73,15 +73,13 @@
 
   ++  예시.
 
-![](img/Img-failFast1.png)
-
+![](img/Collection/failFast1.png)
 복사본 제거시 오류가 발생하지 않지만, 컬렉션을 직접 제거하면 에러 발생
 
 그래서 복사본을 조작하거나 , 동기화를 보장 또는 Enumeration으로 조회.
 
-
-![](img/failFast2.png)
-![](img/failFast3.png)
+![](img/Collection/failFast2.png)
+![](img/Collection/failFast3.png)
   
 저번에 공부한 병렬식 컬렉션을 선언해 사용한 결과이다 예외가 일어나지 않는다.
 
@@ -97,44 +95,42 @@ fail-fast 방식 보충
 
 변경이 생긴다면 ?  순차적 접근이 실패하면서 ConcurrentModificationException을 예외 발생
 
-
-![](img/failFast4.png)
-![](img/failFast5.png)
+![](img/Collection/failFast4.png)
+![](img/Collection/failFast5.png)
 
 출처 : https://lng1982.tistory.com/95
 
 ### 상수
 
-![](img/ArrayListConstant.png)
+![](img/Collection/ArrayList/ArrayListConstant.png)
 
  배열의 최대 사이즈는 8 그러나 더 큰값이 필요하면 hugeCapacity가 처리.
  hugeCapacity는 minCapacity가 음수이면 OutOfMemoryError 던지고,
  MAX_ARRAY_SIZE보다 큰 값이면 Interger.MaX_VALUE 사이즈로 사용함.
 
 
-![](img/hugeCapacity.png)
+![](img/Collection/ArrayList/hugeCapacity.png)
 
 ### 생성자
 
-![](img/ArrayListconstructor.png)
-
+![](img/Collection/ArrayList/ArrayListconstructor.png)
 기본 생성자 초기 용량은 10.
 
-![](img/ArrayListContructor2.png)
 
+![](img/Collection/ArrayList/ArrayListContructor2.png)
 
 ### ArrayList(int initalCapacity)
 
-![](img/ArrayList int initialCapacity.png)
+![](img/Collection/ArrayList/ArrayList int initialCapacity.png)
 
 초기 용량이 주어지면 그만큼 사이즈를 가진 배열 생성
 
 ### ArrayList(Collection< extend> c)
 
-![](img/ArrayList Collection extend c.png)
+![](img/Collection/ArrayList/ArrayList Collection extend c.png)
 Collection 이 주어지면 같은 사이즈를 갖는 배열 생성하고 값을 복사함
 
-![](img/newCapacity.png)
+![](img/Collection/ArrayList/newCapacity.png)
 
 출처 : https://johngrib.github.io/wiki/java/arraylist/#arraylistcollection-extends-e-c
 
@@ -185,13 +181,12 @@ ArrayList랑 비슷하다.
 
 
 예시 사진
-![](img/LinkedListExample.png)
-
+![](img/Collection/LinkedList/LinkedListExample.png)
 직원이 늘어도 상관이없지만 3번째 사무실찾으려면 1번빼 에서 2번째 이런식으로 찾아가야 됨.. 몇 번째 엘리먼트에요? 느림..
 엘리먼트들을 노드(마디 , 교점) , 버텍스(정점,꼭지점) 이라 명칭함.
 
 
-![](img/LinkedListExample2.png)
+![](img/Collection/LinkedList/LinkedListExample2.png)
 
 링크드 리스트는 노드 들의 모임, 
 노드는 최소한 두 가지 정보를 알고 있어야 한다. 노드 값과 다음 노드.
@@ -200,12 +195,12 @@ head는 출입문 개념.
 
 새로운 노드 삽입 방법
 
-![](img/LinkedListAdd.png)
+![](img/Collection/LinkedList/LinkedListAdd.png)
 
 
 중간에 새로운 노드 삽입 방법 
 
-![](img/LinkedListMiddleAdd.png)
+![](img/Collection/LinkedList/LinkedListMiddleAdd.png)
 
 이전 이후 노드의 참조값만 변경하면 된다..
 
@@ -751,8 +746,7 @@ rear 에따라 원소를 추가하고 front에 따라 원소를 삭제한다.
 배열처럼 요소 개수에 따라 늘려주거나 줄여 들 필요도 없고 삽입 삭제에도 용이함.
 마찬가지로 노드로 구성 되있고.
 
-![](img/LinkedListQueue.png)
-
+![](img/Collection/LinkedList/LinkedListQueue.png)
 단일 연결 리스트 이다. 그리고 그 자체를 가지고 큐의 기능.
 
 
