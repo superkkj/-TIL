@@ -2,11 +2,10 @@
 
 
 계층 구조 
-![img_5.png](img_5.png)
-
+![](img/iterable/img_5.png)
  iterable 구조 
  
-![img_6.png](img_6.png)
+![](img/iterable/img_6.png)
 
  iterable > collection > List , set , Queue 상속 하고있다.
  
@@ -19,7 +18,7 @@
 
 
  ## Iterator
- ![img_7.png](img_7.png)e
+![](img/iterable/img_7.png)
 
  내부에는 hasNext , next  , remove 등 컬렉션 클래스의 데이터 하나씩 읽어올때 사용 .
  이런 공통 인터페이스(Iterator)를 정의해서 구현하도록 표준을 정하면서 코드의 일관성 유지및 재사용성 극대.
