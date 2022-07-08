@@ -133,7 +133,7 @@ public void greetInEnglish() {
     변수가 최종 변수가 아닌 경우 메서드의 변수 복사본은 변경될 수 있지만
     로컬 클래스의 복사본은 변경되지 않으므로 동기화되지 않습니다.
 
-->  음 질문을 드릴부분?
+->  음 질문을 드릴부분? 좀더 조사가 필요.
 
 4. 지역 클래스는 상수를 표현하기 위한 경우 예외적으로 static 멤버를 가질 수 있다. (예외적인경우에만..)
 
@@ -144,3 +144,4 @@ public void greetInEnglish() {
 출처: https://epicdevsold.tistory.com/89
      https://docs.oracle.com/javase/tutorial/java/javaOO/localclasses.html
      https://blog.fupfin.com/?p=50
+https://live-everyday.tistory.com/189
