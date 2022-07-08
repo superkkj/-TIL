@@ -17,6 +17,9 @@
 다른 표현식에서 클래스를 정의해야 합니다. 
 다음 예제인 HelloWorldAnonymousClasses는 지역 변수 FrenchGreeting 및 spanishGreeting의 초기화 문에서 익명 클래스를 사용하지만 변수 englishGreeting의 초기화를 위해 지역 클래스를 사용합니다.
 
+->  지역 클래스 : englishGreeting
+    익명 클래스 : FrenchGreeting , spanishGreeting
+
 
 ![](../img/NestedClass/AnonymousClass.png)
 
@@ -81,17 +84,13 @@ Anonymous 클래스는 또한 해당 멤버와 관련하여 로컬 클래스와 
 JavaFX 예제 HelloWorld.java를 고려하십시오(JavaFX 시작하기의 Hello World, JavaFX 스타일 섹션에서). 이 샘플은 'Hello World' 버튼이 포함된 프레임을 만듭니다. 익명 클래스 표현식이 강조 표시됩니다.
 
 
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.layout.StackPane;
-import javafx.stage.Stage;
+    public class HelloWorld extends Application {
 
-public class HelloWorld extends Application {
-public static void main(String[] args) {
-launch(args);
-}
+
+    public static void main(String[] args) {
+    
+        launch(args);
+    }
 
     @Override
     public void start(Stage primaryStage) {
@@ -127,7 +126,7 @@ TextInputControl 클래스에서 상속된 replaceText 및 replaceSelection 메�
 
 
 
-public class CustomTextFieldSample extends Application {
+    public class CustomTextFieldSample extends Application {
 
     final static Label label = new Label();
  
@@ -195,5 +194,38 @@ public class CustomTextFieldSample extends Application {
 }
 
 
+## 정리  로컬클래스와 유사하다
 
+1. 익명 클래스는 이름 없는 로컬 클래스이고 한번만 사용 하는 경우에 사용한다.
+2. 익명 클래스는 표현식임으로 위에 클래스나 인터페이스를 따로 추가해주고 new HelloWorld() 처럼 사용해 준다.
+3. 로컬 클래스와 마찬가지로 외부 자원은 final로 선언된 자원만 접근이 가능하다.
+4. 동일한 이름을 가진 변수가 있으면 섀도잉 한다. (로컬 클래스와 같네..)
+5. 익명 클래스는 추가 메소드를 선언 할 수있고. 객체 초기화 로컬 클래스등을 선언 할 수 있지만 생성자는 안됀다.
+6. 공식 문서에 보면 GUI 에서 많이 사용하는 듯 하다.(주로 버튼.. 각 버튼은 각각 다른 이벤트를 발생시 켜야되니.. 하나의 기능을 돌려쓰기보단 그때에 맞춰서..)
+   또한 다른 스레드를 만들어 처리할때 익명구현객체를 많이 사용한다고 한다.
+7. 두 개이상 매서드가 포함된 인터페이스를 구현하는대 유용 하다. (음 ,, 그냥 인터페이스를 상속받아서 오버라이딩 하는 건데..)
+   좋기는 한대 코드가 너무 복잡해지지 않을까? 
+
+그럼에 도 쓰이는 이유는 인터페이스의 목적이 단일 기능에 대한 정의나(하나의 추상매소드)
+인터페이스 구현이 한번만 사용되어 재사용이 불필요한경우에
+
+클래스 선선 비용??을 줄이고 코드 간결화를 위해 익명 클래스를 사용
+
+음..
+
+      Thread t = new Thread(new Runnable() {
+            public void run() {
+                System.out.println("익명클래스 구현부");
+            }
+        });
+
+이런 예시?
+
+
+
+## 단점 
+
+ 1. 재 사용이 불가능하다, 표현식으로만 봐도 한번 밖에 못쓰이게 보인다.
+ 2. 캡슐화를 하지 못한다.
 출처: https://docs.oracle.com/javase/tutorial/java/javaOO/anonymousclasses.html
+    https://velog.io/@jerry92/Java-%EC%9D%B5%EB%AA%85%ED%81%B4%EB%9E%98%EC%8A%A4%EC%99%80-Lambda
