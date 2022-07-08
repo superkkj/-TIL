@@ -48,7 +48,7 @@ FrenchGreeting 객체의 인스턴스화를 고려하십시오.
 익명 클래스 정의는 표현식이므로 명령문의 일부여야 합니다. 이 예에서 익명 클래스 표현식은 FrenchGreeting 객체를 인스턴스화하는 문의 일부입니다. (이는 닫는 중괄호 뒤에 세미콜론이 있는 이유를 설명합니다.)
 
 
-##엔클로징 스코프의 지역 변수 접근, 익명 클래스의 멤버 선언 및 접근
+## 엔클로징 스코프의 지역 변수 접근, 익명 클래스의 멤버 선언 및 접근
 ## Accessing Local Variables of the Enclosing Scope, and Declaring and Accessing Members of the Anonymous Class
 
 로컬 클래스와 마찬가지로 익명 클래스는 변수를 캡처할 수 있습니다. 그들은 둘러싸는 범위의 지역 변수에 대해 동일한 액세스 권한을 갖습니다.
@@ -77,7 +77,7 @@ Anonymous 클래스는 또한 해당 멤버와 관련하여 로컬 클래스와 
 
 그러나 익명 클래스에서는 생성자를 선언할 수 없습니다.
 
-##익명 클래스의 예
+## 익명 클래스의 예
 
 익명 클래스는 GUI(그래픽 사용자 인터페이스) 응용 프로그램에서 자주 사용됩니다.
 
@@ -194,7 +194,7 @@ TextInputControl 클래스에서 상속된 replaceText 및 replaceSelection 메�
 }
 
 
-## 정리  로컬클래스와 유사하다
+## 정리  (로컬클래스와 유사하다 이름없는 로컬클래스니깐..)
 
 1. 익명 클래스는 이름 없는 로컬 클래스이고 한번만 사용 하는 경우에 사용한다.
 2. 익명 클래스는 표현식임으로 위에 클래스나 인터페이스를 따로 추가해주고 new HelloWorld() 처럼 사용해 준다.
@@ -209,7 +209,7 @@ TextInputControl 클래스에서 상속된 replaceText 및 replaceSelection 메�
 그럼에 도 쓰이는 이유는 인터페이스의 목적이 단일 기능에 대한 정의나(하나의 추상매소드)
 인터페이스 구현이 한번만 사용되어 재사용이 불필요한경우에
 
-클래스 선선 비용??을 줄이고 코드 간결화를 위해 익명 클래스를 사용
+클래스 생성 비용??을 줄이고 코드 간결화를 위해 익명 클래스를 사용
 
 음..
 
@@ -227,5 +227,8 @@ TextInputControl 클래스에서 상속된 replaceText 및 replaceSelection 메�
 
  1. 재 사용이 불가능하다, 표현식으로만 봐도 한번 밖에 못쓰이게 보인다.
  2. 캡슐화를 하지 못한다.
+
+부족한 설명은 중첩 클래스에 따로 부연설명 해놓음.
+
 출처: https://docs.oracle.com/javase/tutorial/java/javaOO/anonymousclasses.html
     https://velog.io/@jerry92/Java-%EC%9D%B5%EB%AA%85%ED%81%B4%EB%9E%98%EC%8A%A4%EC%99%80-Lambda
