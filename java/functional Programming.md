@@ -1,7 +1,6 @@
 # functional Programming
 
  ![](functional Programming/Functinal Programming1.png)
-
 # 설명
 
  - 자료 처리를 수학적 함수의 계산으로 취급하고 상태와 가변 데이터를 멀리하는 프로그래밍 패러다임의 하나이다. 
@@ -28,8 +27,7 @@
  - 같은 입력 시 같은 출력을 보장한다. 부수 효과가 없다.(외부의 상태를 변경하는 것이나, 함수로 들어온 인자의 상태를 직접 변경하는 것(객체에 해당되 는듯??))
  - 외부의 상태를 변경하지 않아야 한다.
 
- ![](functional Programming/Functinal Programming2.png)
-
+![](functional Programming/Functinal Programming2.png)
 pFunc 함수는 순수하다. 
 
 수백번을 실행시켜도 입력값이 2,3이면 출력은 5로 동일하다. 이 함수는 외부의 값에 영향을 주거나 받지도 X
@@ -52,12 +50,10 @@ pFunc 함수는 순수하다.
 
 ex) map 함수
 
- ![](functional Programming/Functinal Programming3.png)
-
+![](functional Programming/Functinal Programming3.png)
 ## 함수를 결과로 반환하는 함수
 
- ![](functional Programming/Functinal Programming4.png)
-
+![](functional Programming/Functinal Programming4.png)
 ## 함수를 인자로 하여 호출할 수 있고 결과로 함수를 반환하는 함수
 
 출처 : https://alkhwa-113.tistory.com/entry/%EB%9E%8C%EB%8B%A4%EC%8B%9Dfeat-%EC%9D%B5%EB%AA%85-%EA%B5%AC%ED%98%84-%ED%81%B4%EB%9E%98%EC%8A%A4-vs-%EB%9E%8C%EB%8B%A4%EC%8B%9D
