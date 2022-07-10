@@ -28,11 +28,13 @@
 
  - 같은 입력 시 같은 출력을 보장한다. 부수 효과가 없다.(외부의 상태를 변경하는 것이나, 함수로 들어온 인자의 상태를 직접 변경하는 것(객체에 해당되 는듯??))
  - 외부의 상태를 변경하지 않아야 한다.
- - 
-![](functionalProgramming/FunctinalProgramming2.png)
-pFunc 함수는 순수하다. 
 
-수백번을 실행시켜도 입력값이 2,3이면 출력은 5로 동일하다. 이 함수는 외부의 값에 영향을 주거나 받지도 X
+![](functionalProgramming/FunctinalProgramming2.png)
+
+
+ pFunc 함수는 순수하다. 
+
+ 수백번을 실행시켜도 입력값이 2,3이면 출력은 5로 동일하다. 이 함수는 외부의 값에 영향을 주거나 받지도 X
 
  + 만약 객체를 인자값으로 받을 땐 값만 참조하고 주소는 참조하지않게 리턴해주면 이것도 순수 함수다.
 
@@ -58,6 +60,8 @@ ex) map 함수
 ![](functionalProgramming/FunctinalProgramming4.png)
 
 ## 함수를 인자로 하여 호출할 수 있고 결과로 함수를 반환하는 함수
+
+![](functionalProgramming/FunctinalProgramming5.png)
 
 출처 : https://alkhwa-113.tistory.com/entry/%EB%9E%8C%EB%8B%A4%EC%8B%9Dfeat-%EC%9D%B5%EB%AA%85-%EA%B5%AC%ED%98%84-%ED%81%B4%EB%9E%98%EC%8A%A4-vs-%EB%9E%8C%EB%8B%A4%EC%8B%9D
       https://velog.io/@recordboy
