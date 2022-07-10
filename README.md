@@ -16,3 +16,6 @@
 * [AnonymousClass](https://github.com/superkkj/TIL/blob/main/java/NestedClass/AnonymousClass.md)
 * [classInClass - Nested Class](https://github.com/superkkj/TIL/blob/main/java/NestedClass/classInClass.md)
 * [localClass](https://github.com/superkkj/TIL/blob/main/java/NestedClass/localClass.md)
+* [functional Programming](https://github.com/superkkj/TIL/blob/main/java/functional%20Programming.md)
+* [Functional Interface](https://github.com/superkkj/TIL/blob/main/java/Functional%20Interface.md)
+* [LambdaExpressions](https://github.com/superkkj/TIL/blob/main/java/Lambda/LambdaExpressions.md)

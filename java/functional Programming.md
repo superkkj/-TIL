@@ -1,6 +1,6 @@
 # functional Programming
 
-![](functional Programming/Functinal Programming1.png)
+ ![](functional Programming/Functinal Programming1.png)
 
 # 설명
 
@@ -28,7 +28,7 @@
  - 같은 입력 시 같은 출력을 보장한다. 부수 효과가 없다.(외부의 상태를 변경하는 것이나, 함수로 들어온 인자의 상태를 직접 변경하는 것(객체에 해당되 는듯??))
  - 외부의 상태를 변경하지 않아야 한다.
 
-![](functional Programming/Functinal Programming2.png)
+ ![](functional Programming/Functinal Programming2.png)
 
 pFunc 함수는 순수하다. 
 
@@ -52,13 +52,14 @@ pFunc 함수는 순수하다.
 
 ex) map 함수
 
-![](functional Programming/Functinal Programming3.png)
+ ![](functional Programming/Functinal Programming3.png)
 
 ## 함수를 결과로 반환하는 함수
 
-![](functional Programming/Functinal Programming4.png)
+ ![](functional Programming/Functinal Programming4.png)
 
 ## 함수를 인자로 하여 호출할 수 있고 결과로 함수를 반환하는 함수
 
 출처 : https://alkhwa-113.tistory.com/entry/%EB%9E%8C%EB%8B%A4%EC%8B%9Dfeat-%EC%9D%B5%EB%AA%85-%EA%B5%AC%ED%98%84-%ED%81%B4%EB%9E%98%EC%8A%A4-vs-%EB%9E%8C%EB%8B%A4%EC%8B%9D
       https://velog.io/@recordboy
+      https://namu.wiki/w/%EA%B3%A0%EC%B0%A8%20%ED%95%A8%EC%88%98?from=%EA%B3%A0%EC%B0%A8%ED%95%A8%EC%88%98
