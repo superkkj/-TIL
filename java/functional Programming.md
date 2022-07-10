@@ -1,6 +1,6 @@
 # functional Programming
 
-![](functional Programming/FunctinalProgramming1.png)
+ ![](functional Programming/FunctinalProgramming1.png)
 
 # 설명
 
