@@ -124,7 +124,7 @@ public void greetInEnglish() {
 
 
 
-왜 Final 만 접근이 가능하지 ?
+왜 Final 만 접근이 가능하지 ? (익명 클래스도 포함)
 
 이해가 안돼서 두개 정도 찾아 봄
  
@@ -133,7 +133,37 @@ public void greetInEnglish() {
     변수가 최종 변수가 아닌 경우 메서드의 변수 복사본은 변경될 수 있지만
     로컬 클래스의 복사본은 변경되지 않으므로 동기화되지 않습니다.
 
-->  음 질문을 드릴부분? 좀더 조사가 필요.
+![](../img/NestedClass/LocalClass3.png)
+
+ 멀티 쓰레드에서 동작 하면 ? final이 아닌경우 문제가 발생 할 수 있음.
+ 람다가 늦게 실행 될 수 있기 때문에.
+ 메소드 변수들은 stack영역에 저장되는데 메소드가 종료되면 stack의 데이터도 삭제되기 때문에 람다 실행시점에 
+ 변수가 존재하지 않을 가능성이 생긴다.
+ 위 코드경우 Final로 선언해서 다른 쓰레드의 상태에 따라도 작업의 결과가 달라지지 않는다.
+
+##  외부 변수를 참조할때
+
+![](../img/NestedClass/LocalClass4.png)
+
+
+## 지연 발생  
+![](../img/NestedClass/LocalClass5.png)
+
+
+어떤 스레드가 먼저 호출될지 예상이 안됀다. 여기서 타이밍 문제가 발생 또한 멀티 쓰레드에서 동시에 접근하면????
+동시성 문제가 발생한다.
+
+
+## 동시성 문제 회피.
+
+![](../img/NestedClass/LocalClass6.png)
+
+
+synchronized() 동기화나 위 코드처럼 Thread-safe하도록 만들면 동시성 문제가 해결된다..
+
+## 정리
+
+다른 쓰레드의 상태따라 Lambda 처리 작업의 결과가 달라질 수 있으므로 final 변수만 참고하는게 좋다.
 
 4. 지역 클래스는 상수를 표현하기 위한 경우 예외적으로 static 멤버를 가질 수 있다. (예외적인경우에만..)
 
@@ -144,4 +174,5 @@ public void greetInEnglish() {
 출처: https://epicdevsold.tistory.com/89
      https://docs.oracle.com/javase/tutorial/java/javaOO/localclasses.html
      https://blog.fupfin.com/?p=50
-https://live-everyday.tistory.com/189
+     https://live-everyday.tistory.com/189
+     https://codechacha.com/ko/java-why-we-should-use-final-in-lambda/
