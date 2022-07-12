@@ -67,6 +67,7 @@
 ex) map 함수
 
 ![](functionalProgramming/FunctinalProgramming3.png)
+
 ## 함수를 결과로 반환하는 함수
 
 ![](functionalProgramming/FunctinalProgramming4.png)

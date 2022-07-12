@@ -165,6 +165,8 @@ synchronized() 동기화나 위 코드처럼 Thread-safe하도록 만들면 동�
 
 다른 쓰레드의 상태따라 Lambda 처리 작업의 결과가 달라질 수 있으므로 final 변수만 참고하는게 좋다.
 
++ 변수에 값 변경에 의핸 side effect도 일어날 수 있기 때문.
+
 4. 지역 클래스는 상수를 표현하기 위한 경우 예외적으로 static 멤버를 가질 수 있다. (예외적인경우에만..)
 
 
@@ -176,3 +178,4 @@ synchronized() 동기화나 위 코드처럼 Thread-safe하도록 만들면 동�
      https://blog.fupfin.com/?p=50
      https://live-everyday.tistory.com/189
      https://codechacha.com/ko/java-why-we-should-use-final-in-lambda/
+     https://www.slipp.net/questions/278

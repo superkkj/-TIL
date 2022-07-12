@@ -17,6 +17,75 @@ FunctionalInterface의 인스턴스는 람다 식, 메서드 참조 또는 생�
 FunctionalInterface의 정의를 충족하는 모든 인터페이스를 FunctionalInterface로 취급합니다.
 
 
+## 함수형 인터페이스 종류
+
+![](img/Functional Interface/Functional InterFace2.png)
+
+
+
+
+### Consumer
+
+#### accept
+
+ Type 제네릭 T 인자를 받는다 .
+
+ 리턴값은 없다.
+
+![](img/Functional Interface/Functional InterFace3.png)
+
+![](img/Functional Interface/Functional InterFace4.png)
+
+#### andThen()
+
+![](img/Functional Interface/Functional InterFace5.png)
+
+
+### Predicate
+
+![](img/Functional Interface/Functional InterFace6.png)
+
+
+
+#### test()
+
+ Type T 인자를 받고 bollean을 리턴하는 함수형 인터페이스
+
+
+ ![](img/Functional Interface/Functional InterFace7.png)
+
+
+#### and()
+
+ Preidicate 연결하는 메소드  결과들을 AND 연산하고 그 결과를 리턴.
+
+
+![](img/Functional Interface/Functional InterFace8.png)
+
+
+#### or()
+
+ Predicate 연결 메소드 OR 두개의 Predicate을 OR 연산한다 .
+
+
+#### isEqual
+
+ 인자로 전달된 객체와 같은지 확인 stream 에서 사용 될 수 있음
+ 
+![](img/Functional Interface/Functional InterFace9.png)
+
+#### negate()
+
+    predicate가 리턴하는 값과 반대되는 값을 리턴하는 Predicate 리턴 쉽게말하면 NOT 연산을 한다..
+![](img/Functional Interface/Functional InterFace10.png)
+
+#### Stream
+
+ isEqual 처럼 Stream 안에서 filter() 인자에 전달될 수 있따.
+
+
+
+
 ## 정리
 
 ### 함수형 프로그래밍은 자료 처리를 수학적 함수의 계산으로 취급하고 상태와 가변 데이터를 멀리하는 프로그래밍 패러다임의 하나이다.- 위키백과
@@ -35,8 +104,21 @@ FunctionalInterface의 정의를 충족하는 모든 인터페이스를 Function
 3. java 8 에서는 @FunctionalInterface 어노테이션을 통해 해당 인터페이스가 함수형 인터페이스 인지 확인인지 아닌지 확실하 하기 원할때 사용
    Functional Interface라는걸 니타내기 위해 @FunctionalInterface을 선언하고 함수형 인터페이스 조건에 충족되지 않으면 예러를 발생시킨다.  
    그러나 @FunctionalInterface 가 선언 되지 않더라도 정의를 충족하는 인터페이스는 함수형 인터페이스로 컴파일러가 취급을 한다.
+4. 디폴트 메서드 , static 메서드 또한 함수형 인터페이스에 추상메서드로 포함되지 않기 때문에 1개의 추상메서드 + 로 구성될 수 있다.
+
+
+## 람다식
+
+
+ 함수형 인터페이스에 정의된 하나의 추상 메서드는 람다함수를 실행시킬 메서드 이다.
+ 추상메서드가 하나이기 때문에 람다식에서 정보가 추론이 가능! (전에썻던 전략패턴을 생각해보자.)
+ 
+
+
+
 
 
 출처 : https://docs.oracle.com/javase/8/docs/api/index.html?java/lang/FunctionalInterface.html
       https://beomseok95.tistory.com/277
       https://alkhwa-113.tistory.com/entry/%EB%9E%8C%EB%8B%A4%EC%8B%9Dfeat-%EC%9D%B5%EB%AA%85-%EA%B5%AC%ED%98%84-%ED%81%B4%EB%9E%98%EC%8A%A4-vs-%EB%9E%8C%EB%8B%A4%EC%8B%9D
+      https://codechacha.com/ko/java8-predicate-example/
