@@ -19,7 +19,7 @@ FunctionalInterface의 정의를 충족하는 모든 인터페이스를 Function
 
 ## 함수형 인터페이스 종류
 
-![](img/Functional Interface/Functional InterFace2.png)
+![](img/FunctionalInterface/FunctionalInterFace2.png)
 
 
 
@@ -32,18 +32,18 @@ FunctionalInterface의 정의를 충족하는 모든 인터페이스를 Function
 
  리턴값은 없다.
 
-![](img/Functional Interface/Functional InterFace3.png)
+![](img/FunctionalInterface/FunctionalInterFace3.png)
 
-![](img/Functional Interface/Functional InterFace4.png)
+![](img/FunctionalInterface/FunctionalInterFace4.png)
 
 #### andThen()
 
-![](img/Functional Interface/Functional InterFace5.png)
+![](img/FunctionalInterface/FunctionalInterFace5.png)
 
 
 ### Predicate
 
-![](img/Functional Interface/Functional InterFace6.png)
+![](img/FunctionalInterface/FunctionalInterFace6.png)
 
 
 
@@ -52,7 +52,7 @@ FunctionalInterface의 정의를 충족하는 모든 인터페이스를 Function
  Type T 인자를 받고 bollean을 리턴하는 함수형 인터페이스
 
 
- ![](img/Functional Interface/Functional InterFace7.png)
+ ![](img/FunctionalInterface/FunctionalInterFace7.png)
 
 
 #### and()
@@ -60,7 +60,7 @@ FunctionalInterface의 정의를 충족하는 모든 인터페이스를 Function
  Preidicate 연결하는 메소드  결과들을 AND 연산하고 그 결과를 리턴.
 
 
-![](img/Functional Interface/Functional InterFace8.png)
+![](img/FunctionalInterface/FunctionalInterFace8.png)
 
 
 #### or()
@@ -72,12 +72,12 @@ FunctionalInterface의 정의를 충족하는 모든 인터페이스를 Function
 
  인자로 전달된 객체와 같은지 확인 stream 에서 사용 될 수 있음
  
-![](img/Functional Interface/Functional InterFace9.png)
+![](img/FunctionalInterface/FunctionalInterFace9.png)
 
 #### negate()
 
     predicate가 리턴하는 값과 반대되는 값을 리턴하는 Predicate 리턴 쉽게말하면 NOT 연산을 한다..
-![](img/Functional Interface/Functional InterFace10.png)
+![](img/FunctionalInterface/FunctionalInterFace10.png)
 
 #### Stream
 
@@ -96,13 +96,13 @@ FunctionalInterface의 정의를 충족하는 모든 인터페이스를 Function
   + 왜 ? 오브젝트 메소드는 제외를 하지 - > 자바의 사용되는 모든 객체들이 Object 객체를 상속받기 때문에 인터페이스 구현체들이 Object 메서드를 다 가지고 있기 때문..
 
 
-![](img/Functional Interface/Functional InterFace.png)
+![](img/FunctionalInterface/FunctionalInterFace.png)
 
 -> Runnable 인터페이스는 함수형 인터페이스.
 
 2. 람다식 , 메서드 참조 , 생성자 참조 사용해서 만들 수 있음  (코드가 간결해져서 좋다.)
 3. java 8 에서는 @FunctionalInterface 어노테이션을 통해 해당 인터페이스가 함수형 인터페이스 인지 확인인지 아닌지 확실하 하기 원할때 사용
-   Functional Interface라는걸 니타내기 위해 @FunctionalInterface을 선언하고 함수형 인터페이스 조건에 충족되지 않으면 예러를 발생시킨다.  
+   FunctionalInterface라는걸 니타내기 위해 @FunctionalInterface을 선언하고 함수형 인터페이스 조건에 충족되지 않으면 예러를 발생시킨다.  
    그러나 @FunctionalInterface 가 선언 되지 않더라도 정의를 충족하는 인터페이스는 함수형 인터페이스로 컴파일러가 취급을 한다.
 4. 디폴트 메서드 , static 메서드 또한 함수형 인터페이스에 추상메서드로 포함되지 않기 때문에 1개의 추상메서드 + 로 구성될 수 있다.
 
