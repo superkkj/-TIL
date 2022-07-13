@@ -31,6 +31,18 @@
     Be used as an argument ( 인자로서 사용되어질수 있어야 한다)
     Be returned by a function call (함수의 결과로서 리턴될 수 있다.)
 
+String
+Long
+Boolean
+List
+Map
+...
+set
+Object
+
+Exception
+int
+
  예시는 고차함수 부분을 참고
 
 
