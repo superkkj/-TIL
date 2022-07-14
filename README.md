@@ -19,3 +19,5 @@
 * [functional Programming](https://github.com/superkkj/TIL/blob/main/java/functional%20Programming.md)
 * [Functional Interface](https://github.com/superkkj/TIL/blob/main/java/Functional%20Interface.md)
 * [LambdaExpressions](https://github.com/superkkj/TIL/blob/main/java/Lambda/LambdaExpressions.md)
+* [Gabage collection](https://github.com/superkkj/TIL/blob/main/java/GabageCollection/Gabage%20collection.md)
+* [Gabage collection Algorithm](https://github.com/superkkj/TIL/blob/main/java/GabageCollection/Gabage%20collection%20Algorithm.md)
