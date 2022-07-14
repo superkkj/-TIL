@@ -15,11 +15,18 @@
  유효한 객체들이 연속되게 쌓이도록 힙의 가장 앞 부분부터 채워서 객체가 존재하는 부분과 객체가 존재하지 않는 부분으로 나누는 것
 
 
- -> Serial GC는 CPU 1개 코어 일때 사용되기 위해 개발 되서, 모든 가비지 컬렉션 일을
+ -> Serial GC는 CPU 1개 코어 일때 사용되기 위해 개발 되서, 모든 가비지 컬렉션 일을 
     처리하기 위해 1개 쓰레드만 이용함 -> 그래서 CPU 코어가 여러 개인 운영 서버에 대해 Serial GC 사용 X
+    적은 메모리와 CPU 코어가 적을때 적합함
+
+ 1. 살아있는 객체 식별 (mark)
+ 2. 살아있는 객체만 남기기 (sweep)
+ 3. 각 객체들이 연속되게 쌓이도록 힙의 가장 앞부분 부터 채워서 객체가 존재하는부분과 존제하지않는부분을 나눈다 (Compaction)
 
 
 ## Parallel(병렬) GC
+
+![](../img/GabageCollection/GabageCollection7.png)
 
  Throughput GC로 많이 알려져 있음 기본 처리 과정은 Serial GC랑 동일
  여러 개의 쓰레드를 Parallel GC를 수행함 GC 오버헤드를 상당히 줄여 줌.
@@ -52,13 +59,23 @@
 
  애플리케이션이 구동중일 때 프로세서의 자원을 공유하여 이용가능해야 한다. 
  CMS GC가 수행될 때에는 자원이 GC를 위해서도 사용되므로 응답이 느려질 순 있지만 응답이 멈추지는 않게 된다.
- 하지만 이러한 CMS GC는 다른 GC 방식보다 메모리와 CPU를 더 많이 필요로 하며,
+ 하지만 이러한 CMS GC는 다른 GC 방식보다 메모리와 CPU를 더 많이 필요로 하며, (하는일도 많고 복잡해서)
  Compaction 단계를 수행하지 않는다는 단점이 있다. 
 
+
+ ++ 절반은 GC 절반은 어플리케이션을 돌림 (평상시는 100퍼 어플리케이션..)
+    Old Generation 전용 GC 임 , 해당 GC를 사용하며 자동적으로 Young Generation 전용 ParNewGC를 사용한다.
+
+
+### 장점 
+ 
+ 1. 어플리케이션 스레드가 오랫동안 멈추지 않음 ( 짧게 쪼개서 멈춤)
+
 ### 단점 
+
  이 때문에 시스템이 장기적으로 운영되다가
  Compaction 단계를 수행하지 않아서
- 조각난 메모리들이 많아 Compaction 단계가 수행되면 오히려 Stop The World 시간이 길어지는 문제가 발생할 수 있다.
+ 조각난 메모리들이 많아 Compaction 단계가 수행되면 오히려 Stop The World 시간이 길어지는 문제가 발생할 수 있다. (단편화 발생)
  
 
  -> 결국 java14에서는 사용 중지 됨.
@@ -75,8 +92,37 @@
 ![](../img/GabageCollection/GabageCollection6.png)
 
 
- 크기를 50%를 초과하는 객체를 저장하는 지역인 Humonguous   / Availabe/Unused는 사용되지 않는 지역을 의미
+ 크기를 50%를 초과하는 객체를 저장하는 지역인 Humonguous(거대 객체를 저장하는 영역 Old Generation에 바로 할당)   / Availabe/Unused는 사용되지 않는 지역을 의미
  핵심은 Heap을 동일한 크기의 Region 나누고 가비지가 많은 지역에 대해 우선적 GC 수행함.
+
+
+### 특징
+
+ 1. 수십 GB 이상의 힙에서도 짧은 STW 지향
+ 2. 객체 할당과 Old Generation 승진이 많은 경우에도 메모리 Compaction 하기 때문에 CMS처럼 Full GC  돌지 않음.
+ 3. 짧은 STW와 예측가능한 STW 시간
+ 4. Java10 부턴 Full GC 시에는 멀티 스레드로 동작함. CMS GC는 FULL GC 시 싱글 스레드로 동작?
+
+
+### Why First GC
+
+ G1 GC 는 살아있는 객체를 마킹 후 지역별로 얼만큼 살려둬야 하는지 알 수 있음
+ 모든 객체가 죽은 지역 부터 회수를 함.(Garbage만 있는 지역)
+ 메모리 회수하면서 빈 공간을 빠르게 확보하면서 할당률이 급격히 늘어나는 경우 방지 (Old Generation 한가해짐)
+
+
+### G1 GC 는 어떻게 그렇게 빨리 대용량 힙을 GC가 가능 할까?
+
+ 1. GC 시에 전체 Heap에 대해서 GC를 수행해도 되지 않는다.
+    GC 해야하는 지역에만 GC 하면 되기 때문 (특수한 기법을 써서 GC해야할 지역을 찾음)
+    지역 별로 RSet(Remembered Set) 두고 RSet만 찾아서 추적하면 됨.
+    RSet에는 외부에서 힙 영역 내부를 참조하는 레퍼런스를 관리하기 위한 정보들이 저장되있음.
+ 2. Old Generation Compaction을 하는데 전체 Old Generation 대해서 Compaction 하지 않아도 된다. 해당 지역에서만 하면됨.
+ 3. Garbage를 먼저 수집해 간다.
+    빈 공간을 먼저 확보하기 때문에 메모리의 여유공간이 확보가 많이 됨, 여유 공간이 확보가 빨리 되니 그만큼 GC 빈도도 줄게 됨.
+
+
+ ++ Compact : 살아있는 객체를 한곳에 모음.
 
 
 ### G1 GC  Minor GC 동작 방식
@@ -103,3 +149,4 @@
 
 
 출처: https://mangkyu.tistory.com/118
+     https://perfectacle.github.io/2019/05/11/jvm-gc-advanced/
