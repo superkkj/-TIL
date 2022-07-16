@@ -121,7 +121,61 @@
  메서드 실행이 끝나면 스택 프레임은 pop되어 스택에서 제거.
 
  스레드 한개의 스택 프레임들의 모임이 스택이고.
- 맨위에 스택프레임은 메인 메소드 
+ 맨위에 스택프레임은 메인 메소드 그다음은 메인메오스데어 호출된 메소드.. 단계적으로 아래로
+
+###### StackFrame
+
+ 스택 프레임은 메서드가 호출 될때마다 새로 생겨 스택에 Push!
+ 지역 변수들의 배열, Operand stack , Frame Data를  가짐.
+ Frame Date -> Constant Pool , 이전 스택 프레임에 대한 정보, 현재 메서드가 속한 클래스 / 객체에 대한 참조 등의 정보 가짐
+ -> 쉽게 생각하면 바이트 코드를 사용하기위해 당연히 필요한 정보 내 메서드가 어떤 클래스에 속할까?
+
+![](../img/JavaMemory/JavaMemory10.png)
+
+ 지역변수 예제
+
+![](../img/JavaMemory/JavaMemory11.png)
+
+ Operand Stack
+
+![](../img/JavaMemory/JavaMemory12.png)
+
+ Program Counter
+
+ Operand Stack에 1.0을 push -> Operand(피연산자) Stack에서 pop 한 값을 지역변수배열 1번 인덱스에 저장
+ 1~6 번줄은 각 지역 변수 초기화
+ Double constant , Double Store , Double Load -> 지역변수 배열에 있는값을 피연산자 스택에 push
+ Load Constant Pool -> Constant Pool에서 2번째 값을 가져온다 (double 행 리터럴 60.0)
+ 자주쓰는 값들을 Constant Pool에 넣고 사용할때 가져온다고 한다.
+ 
+ -> 피연산자 스택에서 두값(pop)을 곱하고 더하고 저장해서 다시 Push
+
+
+###### 결과
+
+ JVM은 바이트코드를 실행하기 위해 위에 것들을 사용한 것을 볼수 있다
+ 스택이 JVM에서 사용되는 용도 
+
+ JVM은 왜 레지스터를 안쓰고 스택을 쓸까? 
+ 디바이스 마다 레지스터 갯수를 가정 할 수 없어서 하드웨어 스팩에 관여하는 결과가나온다.
+ 스택을 사용함으로서 계산은 복잡해지지만 하드웨어 스펙 관여가 적어진다.
+ 코드가 컴팩트에서 네트워크 전송도 용이하다.
+
+![](../img/JavaMemory/JavaMemory13.png)
+
+ 결과
+
+
+
+###### Native Method Stack
+
+  자바 바이트코드가 아닌 C/C++ 소스를 컴파일을 해서사용하는 경우가 있는대
+  (성능 향상을위해) 그 때 사용하는 메서드
+
+
+
+
+ 
 
 
 ## JVM 구조 좀 더 알아보기
