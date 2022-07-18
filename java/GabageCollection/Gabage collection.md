@@ -20,6 +20,8 @@
 
 ## 단점
 
+ 1. 메모리가 언제 헤제되는지 개발자는 알수 없다. (실시간 시스템에 부적합 ex: 미사일 발사시스템? 미사일발사도중 STW발생하면 헐..) 
+ 2. GC 동작동안 STW가 발생해 다른동작을 멈춰 오버헤드를 발생(알고리즘 마다 다름.)
 
 
 ## 객체가 참조가 되지 않을 경우?
@@ -66,11 +68,11 @@
 
 
 
-##  Types of Activities in Java Garbage Collection (지비에서 가비지 컬렉션 활동 유형)
+##  Types of Activities in Java Garbage Collection (자비에서 가비지 컬렉션 활동 유형)
  
- 1. 마이너 / Incremental Gabage Collection :  Young Generation 힙 메모리에서(unreachable Object가) 개체가 제거될때 발생. (unreachable objects in the young generation)
+ 1. 마이너 / Incremental Gabage Collection :  Young Generation 힙 메모리에서(unreachable Object가) 개체가 제거될때 발생. (unreachable objects in the young generation) (eden 영역이 꽉찰 때)
  2. 메이저 / Full Garbage Collection : 마이너 가비지 컬렉션에서 살아남은 개체를 영구 세대 힙 메모리에 복사 할때 발생 (주로 Old 영역에서 발생)
-    마이너 GC에비해 자주 일어나지 않는다.
+    마이너 GC에비해 자주 일어나지 않는다. (old 영역 메모리가 부족해질시 발생) 번역이라 뭔가 좀 이상하다..
 
  JVM의 Heap영역은 처음 설계될 때 2가지 전제로 설계됨.
 
@@ -112,7 +114,11 @@
 
 ## Gabage Collection 동작 방식
 
- 
+ 1. stack 모든 변수를 스캔 하면서 각각 어떤 객체를 참조하는지 찾아서 마킹 (mark)
+ 2. Reachable Object가 참조하고 있는 객체도 찾아서 마킹 (mark)
+ 3. 마킹되지않는 객체를 Heap에서 제거 (sweep)
+
+
 
 ### Stop The World
 
@@ -131,10 +137,34 @@
     이후에 Mark가 되지않는 객체들을 메모리에서 제거하는걸 Sweep이라 함.
 
 
+#### GC ROOT
+
+![](../img/GabageCollection/GabageCollection8.png)
+
+ + 힙 외부에서 접근할 수 있는 **변수나 오브젝트** (stack 영역에 있는데이터들 heap을 참조하는)를 말함. (가비지 컬렉터의 ROOT라는 뜻)
+ + Mark 작업은 GC root를 시작해 root가 참조하는 모든 오브젝트 , 또는 그 오브젝트가
+ + 다른 오브젝트들이 참조하는 등 다른 오브젝트들을 탐색해 내려가며 마크함.
+
+ + String str = new String("HELLO")
+ + str 은 스택에 new String("HELLO")는 힙 영역에 저장 된다.
+ + 여기서 GC 는 str 
+
+##### 종류
+
+ 1. 실행중인 쓰레드
+ 2. 정적 변수
+ 3. 로컬 변수
+ 4. JNI 레퍼런스
+
+
 ### Minor GC 동작 방식
 
- Eden : 새로 생긴 객체가 할당 되는 영역
- supervior 영역 : 최소 1번의 GC 이상 살아남은 객체가 존재하는 영역
+ + Eden : 새로 생긴 객체가 할당 되는 영역
+ + survival 영역 : 최소 1번의 GC 이상 살아남은 객체가 존재하는 영역 (GC가 발생하고 살아남은객체가 계쏙 이동함)
+ + 이동한 객체는 Age 값 증가.
+ + suvival 0 , 과 1 을 계속 옴겨다니면서 반복하다 특정 Age 값이 되면 Old Generation 영역으로 옮겨진다
+ + 이 과정을 Promotion 이라고 한다.
+
 
  새로운 객체 - > eden 영역할당 -> 꽉차면 ? 
  Minor GC 발생 -> Survivor 영역 (총 2개가 존재하고 반드시 1개 영역은 비어져있어야한다.)
@@ -171,7 +201,7 @@ HotSpot JVM에서는 Eden 영역에 객체를 빠르게 할당하기 위해 2가
 
 ## Major GC 동작 방식
 
- 객체들이 계속 Promotion ehldj Old 영역에 메모리가 부족해지면
+ 객체들이 계속 Promotion 되어 Old 영역에 메모리가 부족해지면
  Major GC 실행됨(stop the world)
   , Minor GC 보다 10배 이상 시간을 사용함
 
@@ -187,12 +217,12 @@ HotSpot JVM에서는 Eden 영역에 객체를 빠르게 할당하기 위해 2가
 ### System.runFinalization();
 
 
-종료 보류 중인 개체의 종료 메서드를 실행합니다. 
-이 메소드를 호출하면 Java 가상 머신이 폐기된 것으로 확인되었지만
-아직 finalize 메소드가 실행되지 않은 객체의 finalize 메소드를 실행하기 위해 노력을 기울인다는 것을 의미합니다.
-메서드 호출에서 제어가 반환되면 가상 머신은 모든 미해결 완료를 완료하기 위해 최선을 다한 것입니다.
-runFinalization 메서드가 명시적으로 호출되지 않은 경우 가상 머신은 필요에 따라 별도의 스레드에서 종료 프로세스를 자동으로 수행합니다.
-System.runFinalization() 메서드는 이 메서드를 호출하는 기존의 편리한 수단입니다.
+ + 종료 보류 중인 개체의 종료 메서드를 실행합니다. 
+ + 이 메소드를 호출하면 Java 가상 머신이 폐기된 것으로 확인되었지만
+ + 아직 finalize 메소드가 실행되지 않은 객체의 finalize 메소드를 실행하기 위해 노력을 기울인다는 것을 의미합니다.
+ + 메서드 호출에서 제어가 반환되면 가상 머신은 모든 미해결 완료를 완료하기 위해 최선을 다한 것입니다.
+ + runFinalization 메서드가 명시적으로 호출되지 않은 경우 가상 머신은 필요에 따라 별도의 스레드에서 종료 프로세스를 자동으로 수행합니다.
+ + System.runFinalization() 메서드는 이 메서드를 호출하는 기존의 편리한 수단입니다.
 
  - 보통 gc() 메서드를 호출하면 finalize 메서드를 자동 호출하는데 
    어떤 예제 코드를 보면 finalize는 실행됬는데. 막상 변수를 찍어보면 아직 반환이 안됀 상태가 나왔다.
@@ -234,3 +264,5 @@ System.runFinalization() 메서드는 이 메서드를 호출하는 기존의 �
      https://data-flair.training/blogs/island-of-isolation-in-java/
      https://mangkyu.tistory.com/118
      https://d2.naver.com/helloworld/1329
+     https://ko.wikipedia.org/wiki/%EC%93%B0%EB%A0%88%EA%B8%B0_%EC%88%98%EC%A7%91_(%EC%BB%B4%ED%93%A8%ED%84%B0_%EA%B3%BC%ED%95%99)
+     https://imasoftwareengineer.tistory.com/103

@@ -22,3 +22,4 @@
 * [Gabage collection](https://github.com/superkkj/TIL/blob/main/java/GabageCollection/Gabage%20collection.md)
 * [Gabage collection](https://github.com/superkkj/TIL/blob/main/java/GabageCollection/Gabage%20collection.md)
 * [JavaMemory](https://github.com/superkkj/TIL/blob/main/java/JavaMemory/JavaMemory.md)
+* [System.out.Println 지양](https://github.com/superkkj/TIL/blob/main/java/systemOut/println.md)
