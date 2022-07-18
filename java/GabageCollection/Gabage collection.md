@@ -129,6 +129,9 @@
 
 ### Mark and Sweep
  
+ 루트에서부터 해당 객체에 접근 가능한지  해지의 기준을 삼음
+ 
+ 
  Mark : 사용되는 메모리 / 사용되지 않는 메모리 식별
  Sweep : Mark 단계에서 사용되지않는 식별된 메모리 해제 작업
  
@@ -136,6 +139,10 @@
     각각 어떤 객체를 참고 하고 있나? 확인, 사용되고 있는 메모리를 식별 하는 과정을 Mark라고 함
     이후에 Mark가 되지않는 객체들을 메모리에서 제거하는걸 Sweep이라 함.
 
+#### 단점
+
+ + 의도적으로 GC를 실행해야됨
+ + 어플리케이션 실행과 GC실행이 병행됨
 
 #### GC ROOT
 
@@ -148,6 +155,8 @@
  + String str = new String("HELLO")
  + str 은 스택에 new String("HELLO")는 힙 영역에 저장 된다.
  + 여기서 GC 는 str 
+ 
+ + JVM 메모리의 Stack의 로컬 변수 , Method Area 저장된 정적변수 , Native method stack의 C/C++로 작성된 JNI 참 (위치들 ..)
 
 ##### 종류
 
@@ -166,17 +175,19 @@
  + 이 과정을 Promotion 이라고 한다.
 
 
- 새로운 객체 - > eden 영역할당 -> 꽉차면 ? 
- Minor GC 발생 -> Survivor 영역 (총 2개가 존재하고 반드시 1개 영역은 비어져있어야한다.)
+ + 새로운 객체 - > eden 영역할당 -> 꽉차면 ? 
+ + Minor GC 발생 -> Survivor 영역 (총 2개가 존재하고 반드시 1개 영역은 비어져있어야한다.)
  
- Minor GC 발생하면 -> 메모리 해제 OR Surivivor 영역 으로 이동 (살아남은 객체들)
+ + Minor GC 발생하면 -> 메모리 해제 OR Surivivor 영역 으로 이동 (살아남은 객체들)
  
- 이런 과정 이후에는 -> Survivor 영역이 가득 차면? 다른 Survivor 이동 
- 이래도 계속 살아남으면? Old 영역으로 이동 (Promotion)이 됨.
+ + 이런 과정 이후에는 -> Survivor 영역이 가득 차면? 다른 Survivor 이동 
+ + 이래도 계속 살아남으면? Old 영역으로 이동 (Promotion)이 됨.
 
 
- 객체의 생존 횟수를 카운트하기위해 Minor GC에서 객체가 살아남은 횟수를 의미하는
- age를 Object Header에 기록함, 이후 Minor GC 때 Object Header에 기록된 age를 보고 Promotion 여부를 결정
+ + 객체의 생존 횟수를 카운트하기위해 Minor GC에서 객체가 살아남은 횟수를 의미하는
+ + age를 Object Header에 기록함, 이후 Minor GC 때 Object Header에 기록된 age를 보고 Promotion 여부를 결정
+ 
+ + java 8 기준 병렬 GC 방식 사용기준 age bit 15가 되면 프로모션 발생 
 
 
 
