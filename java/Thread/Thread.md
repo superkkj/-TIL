@@ -1,13 +1,205 @@
 # Thread
 
 
+## 공식문서 
 
+
+
+ + 스레드 는 프로그램에서 실행되는 스레드입니다 . 
+ + JVM(Java Virtual Machine)을 사용하면 애플리케이션이 동시에 실행되는 여러 스레드를 실행할 수 있습니다.
+ + 모든 스레드에는 우선 순위가 있습니다. 우선 순위가 높은 스레드가 우선 순위가 낮은 스레드보다 우선적으로 실행됩니다.
+ + 각 스레드는 데몬으로 표시되거나 표시되지 않을 수 있습니다. 
+ + 일부 스레드에서 실행 중인 코드가 새 Thread객체를 생성할 때 새 스레드는 처음에 생성 스레드의 우선순위와 동일한 우선순위를 가지며 생성 스레드가 데몬인 경우에만 데몬 스레드입니다.
+
+ + JVM(Java Virtual Machine)이 시작될 때 일반적으로 데몬이 아닌 단일 스레드(일반적으로 main지정된 클래스의 이름이 지정된 메서드를 호출함)가 있습니다. 
+ + Java Virtual Machine은 다음 중 하나가 발생할 때까지 스레드를 계속 실행합니다.
+
+ + 클래스 의 exit메소드 Runtime가 호출되었으며 보안 관리자가 종료 조작이 발생하도록 허용했습니다.
+ + 데몬 스레드가 아닌 모든 스레드는 메서드에 대한 호출에서 반환 하거나 메서드를 넘어 전파되는 예외를 throw하여 죽습니다.
+ + 새 실행 스레드를 만드는 방법에는 두 가지가 있습니다. 하나는 클래스를 의 하위 클래스로 선언하는 것입니다 Thread. 
+ + 이 하위 클래스는 runclass 의 메서드를 재정의해야 합니다 Thread. 그런 다음 하위 클래스의 인스턴스를 할당하고 시작할 수 있습니다.
+ + 예를 들어 명시된 값보다 큰 소수를 계산하는 스레드는 다음과 같이 작성할 수 있습니다.
+
+
+
+    class PrimeThread extends Thread {
+    long minPrime;
+    PrimeThread(long minPrime) {
+    this.minPrime = minPrime;
+    }
+    
+             public void run() {
+                 // compute primes larger than minPrime
+                  . . .
+             }
+         }
+
+
+
+ + 다음 코드는 스레드를 생성하고 실행을 시작합니다.
+    
+    + PrimeThread p = new PrimeThread(143);
+    + p.start();
+
+ + 스레드를 만드는 다른 방법은 Runnable인터페이스를 구현하는 클래스를 선언하는 것입니다. 
+ + 그런 다음 해당 클래스는 메서드를 구현합니다 run. 그런 다음 클래스의 인스턴스를 할당하고 생성할 때 인수로 전달 Thread하고 시작할 수 있습니다. 이 다른 스타일의 동일한 예는 다음과 같습니다.
+
+
+    class PrimeRun implements Runnable {
+    long minPrime;
+    PrimeRun(long minPrime) {
+    this.minPrime = minPrime;
+    }
+    
+             public void run() {
+                 // compute primes larger than minPrime
+                  . . .
+             }
+         }
+
+
+ + 다음 코드는 스레드를 생성하고 실행을 시작합니다.
+
+
+     PrimeRun p = new PrimeRun(143);
+     new Thread(p).start();
+
+ + 모든 스레드에는 식별을 위한 이름이 있습니다. 둘 이상의 스레드가 같은 이름을 가질 수 있습니다. 스레드가 생성될 때 이름이 지정되지 않으면 새 이름이 생성됩니다.
+
+ + 달리 명시되지 않는 한 null이 클래스의 생성자나 메서드에 인수를 전달하면 NullPointerExceptionthrow됩니다.
+
+## 공식문서 정리
+
+ 1. 메서드가 종료되거나 예외가 발생하면 스레드 종료
+ 2. 스레드는 기본적으로 5의 우선순위 할당 받음
+ 3. 모든 스레드에는 식별하는 이름이 있지만 같은 이름을 가질 수 있고 새 이름이 생성 되기도 한다.
+ 4. start() 함수는 매서드를 실행하면 Thread를 새로 생성하여 start -> run() 실행 (멀티쓰레드 동작)
+ 5. Run() 매서드는 함수만 실행시키지 Thread가 생성되지 않는다. (싱글쓰레드)
+
+
+
+## 예제코드 
+
+
+    public class RamenProgram {
+
+
+    public static void main(String[] args) {
+        int num;
+        Scanner input = new Scanner(System.in);
+
+        System.out.println("라면 몇 개 끓일까요?");
+
+        num = input.nextInt();
+
+        System.out.println(num + "개 주문 완료! 조리시작!");
+        try {
+            RamenCook ramenCook = new RamenCook(num);
+            new Thread(ramenCook, "A").start();
+            new Thread(ramenCook, "B").start();
+            new Thread(ramenCook, "C").start();
+            new Thread(ramenCook, "D").start();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
+}
+
+
+    interface Runnable {
+    public void run();
+    }
+    
+    
+    class currentThread extends Thread {
+    public RamenCook ramenCook;
+    static String nam;
+
+    currentThread() {
+        this(new RamenCook(5), "");
+    }
+
+    currentThread(RamenCook ramenCook, String nam) {
+        this.ramenCook = ramenCook;
+        this.nam = nam;
+    }
+    }
+
+    
+    class RamenCook extends Thread implements Runnable {
+    private int ramenCount;
+    private String[] burners = {"_", "_", "_", "_"};
+
+    public RamenCook(int count) {
+        ramenCount = count;
+    }
+
+    @Override
+    public void run() {
+        while (ramenCount > 0) {
+            synchronized (this) {
+                ramenCount--;
+                System.out.println(Thread.currentThread().getName() + " : " + ramenCount + "개 남았습니다");
+            }
+
+            for (int i = 0; i < burners.length; i++) {
+                if (!burners[i].equals("_")) {
+                    continue;
+                }
+
+                synchronized (this) {
+                    burners[i] = Thread.currentThread().getName();
+                    System.out.println("                 " + Thread.currentThread().getName() + " : [" + (i + 1) + "]번 버너 ON");
+                    showBurners();
+                }
+
+                try {
+                    Thread.sleep(2000);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+                synchronized (this) {
+                    burners[i] = "_";
+                    System.out.println("                                  " + Thread.currentThread().getName() + " : [" + (i + 1) + "]번 버너 OFF");
+                    showBurners();
+                }
+                break;
+            }
+
+            try {
+                Thread.sleep(Math.round(1000 * Math.random()));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private void showBurners() {
+        String stringToPrint = "                                                             ";
+        for (int i = 0; i < burners.length; i++) {
+            stringToPrint += (" " + burners[i]);
+        }
+        System.out.println(stringToPrint);
+    }
+
+![](../img/Thread/Thread6.png)
+
+ + 결과값
+ + 한 객체에 여러개의 쓰레드를 실행시키면서 연산된 결과
+ + 동기화 코드를 사용해 쓰레드가 실행될때 겹치지않게 안전장치를 해준다.
+ + 
 
 
 ## 자바의신 책정리
 
  + JVM이 시작되면서 프로세스가 시작되고 프로세스 하나에는 여러개의 쓰레드가 수행 됨.( main 메서드가 실행되면서)
  + WAS도 똑같이 main() 메소드에서 생성한 쓰레드들이 수행됨
+ + 스레드란 프로그램 제어 흐름 (실행 단위)을 말함
+ + 한 프로세스내에도 여러 갈래의 작업들이 동시에 진행될 필요가 있는데 이걸 스레드라함.
+ + 프로세스를 식당이라하면 모든 요리를 만들어내는게 스레드
 
 ## 쓰레드는 왜? 만들었지?
  
@@ -55,7 +247,19 @@
 ## sleep
 
  + sleep(1000) 1초 동안 멈춤 
+ + 스레드를 일시 정지 시킨다.
  + sleep을 쓸때는 try-catch로 묶어줘야한다 InterruptedException가 발생할 수있기 때문이다.
+ + 스레드는 구현할때 무한루프를 돌며 주기적으로 문제가없는지확인한다 .
+ + sleep 함수가 없으면 쉬지못하고 계속확인하기때문에 CPU발생률이 100% 증가해 문제 야기
+
+## join
+
+![](../img/Thread/Thread7.png)
+
+ + 실행중인 쓰레드가 종료할때까지 대기
+ + 매게변수가 없으면 해당쓰레드가 종료 할 때까지 무기한 대기.
+ + 기본적으론 join() == join(0)
+ + 쓰레드가 종료될때까지 Join() 함수도 끝나지 않는다.
 
 
 ## Thread 주요 메서드
@@ -96,7 +300,7 @@
 
 ## Interrupt
 
- + 현재 실행중인 쓰레드를 종료함. (InterruptedException 발생시키면서)
+ + 현재 실행중인 쓰레드를 종료함. (sleep: InterruptedException 발생시키면서 / 대기하고있지않을 땐 예외없이..)
  + Thread는 stop이란 메서드가 있지만, 안전상 이유로 사용되지 않아서 interrupt() 메소드를 사용해서 중지시킴
  + Interrupt 메소드는 sleep/join/wait 메소드가 호출된 상태에서 사용가능하다
  + 실행이 종료된 스레드에 interrupt 메소드를 사용하면 아무런 반응이없이 그냥 진행된다.
@@ -106,10 +310,28 @@
 
  + notify() : object 객체의 모니터에 대기하고 있는 단일 쓰레드 깨움 / NotifyAll : 앞에거 + 모든 쓰레드 깨움
  + wait() : 다른 쓰레드가 object 객체에 대한 위 두개 메소드를 호출할 때까지 현재 쓰레드가 대기하고 있도록함
- + 대기 상태 on/off 인 메서드 이다 . 
+ + 대기 상태 on/off 인 메서드 이다 .
+ + 위 메서드는 동기화 처리된 코드에서 사용가능 하다.
 
 ![](../img/Thread/Thread4.png)
 ![](../img/Thread/Thread5.png)
 
  + 예제 코드, 
  + 쓰레드를 생성하고 , 시작! -> wait 상태에서 notifyAll() 해주면서 대기 상태를 깨워주고, 쓰레드가 정상적으로 종료된다.
+
+
+
+## wait Vs sleep
+
+ + sleep : 잠시 일시 중지 했다가 다음 코드를 실행 호출해도 Lock이 풀리지 않음. (다른 스레드들이 동기화 블록에 접근을 하지 못함.)
+ + wait : 
+ + wait(m)인 경우 : m 밀리세컨드가 끝나면 자동적으로 Lock가 해지되고(동기화 블럭), 스레드 큐에 올라감. (thread0이 wait(1) 호출 1밀리세컨드 동안 대기 thread1이 )
+ + wait()/whit(0)인 경우 : notify / notifyAll로 통지 될때까지 기다림. 결국 0초동안 대기하는게 아니라 앞에 함수가 호출될때까지 wait
+
+출처 :
+
+ + 자바의 신
+ + https://docs.oracle.com/javase/8/docs/api/java/lang/Thread.html
+ + https://www.youtube.com/watch?v=iks_Xb9DtTM
+ + https://mozi.tistory.com/551
+ + https://codingdog.tistory.com/entry/java-wait-vs-sleep-%EC%96%B4%EB%96%A4-%EC%B0%A8%EC%9D%B4%EA%B0%80-%EC%9E%88%EC%9D%84%EA%B9%8C%EC%9A%94?category=1058612
