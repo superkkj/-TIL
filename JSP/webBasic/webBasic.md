@@ -49,6 +49,11 @@
  + page import="java.util.Date 등 .. 흠..
 
 
+![](../img/webBasic/directive.png)
+
+ + 디렉티브 주요 속성
+ + 
+
 ## 스크립트 요소
 
  + 표현식 : 값 출력
@@ -58,3 +63,39 @@
 ## 기본 객체
 
  + request ,response , session, 각각 요청에 따라 파라미터 읽어오기 응답결과 전송하기 등.. 제공
+
+
+## JSP 페이지 인코딩 속성
+
+ + 웹 컨테이너는 JSP 파일을 읽을때 pageEncoding 속성과 contentType 속성을 사용해 인코딩을 결정
+
+
+
+## Request  기본 객체
+
+ + 클라이언트 (웹브라우저) 관련된 정보 일긱 기능
+ + 서버와 관련된 정보 일긱기능.
+ + 클라이언트가 전송한 요청 파라미터 및 헤더 쿠키 읽기 기능
+
+
+## GET
+
+ + 전송 방식의 차이
+ + URL 파라미터를 붙여서 전송 
+ + RFC 2396 규약에 정의된 규칙에 따라 인코딩 하기 때문에 이상한 문자가 출력됨
+ + Form을 사용하지않고 전송함.
+
+
+## POST
+
+ + 데이터 영역을 이용해서 전송
+ + 파라미터의 길이 제한이 없다
+
+
+## 웹 어플리케이션 폴더 와 URL 관계
+
+ + WEB-INF : WEB Application 설정 정보를 담고 있음 web.xml 위치
+ + WEB-INF/classes : WEB Application 클래스 파일 위치
+ + WEB=INF/lib : WEB Application 사용하는 jar 파일 위치
+ + webapps/ROOT 라는 폴더도 존재하는대 보통 localhost:8080/ 이다 컨텍스트 경로 = "" 
+ + 외 하위 경로는 context path라고 한다 ex)chap04
