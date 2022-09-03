@@ -62,6 +62,8 @@
 
  + 클라이언트에서는 user/1 
  + 서버에는 현재상태를 Hi i'm user one 표현 대답함
+
+
 ![](Img/img_1.png)
 ![](Img/img_2.png)
 
