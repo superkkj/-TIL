@@ -4,11 +4,6 @@
 
  + Model :  view에서 입력된 내용 저장 관리
  + Controller : view - model 연결자
- + 
-
-
-
-
 
 ## 패턴 
 
@@ -144,4 +139,234 @@
  + TreeSet : 가장 느림 , 데이터를 저장하면서 정렬함  즉 데이터를 순서에 따라 탐색하는 작업일때는 TreeSet이 좋음
 
 
-## Collection 관련 클랫 ㅡ동기화
+# for 루프를 더 빠르게 - 05
+
+ + if문을 쓴다고 큰 성능저하가 많이 일어나지않음
+ + if 보단 case문이 가독성이 좋아 숫자분기땐 권장 허나 조건이많으면 좋지 않다. 시간이 오래걸리니
+
+
+### 반복문 주의사항
+
+ + for(int loop=0jloop<list.size()jloop++) -> 계속 size함수를 호출하게된다..
+ + int listSize = list.size()로 해주고 for문 돌려 주자. (근데 실제로 차이별로안나는 거같음)
+ + for-each 문은 For문보다 느리다.
+ + 반복문을 돌릴때 함수가 계속 호출되는것을 지양하자.
+
+
+
+# static 제대로 한번 써보자 - 06
+
+
+ + 자주 사용하고 절대 변하지않는 변수로 Final static 선언
+ + 보통 변수에 선언하면 요청할때마다 계속 불러야되지만
+ + 스태틱을 사용하면 한번만 하면 그 다음엔 안불러도되서 읽기전용일때 속도가 빨라짐 
+ + 읽기전용으로 쓰지않고 계속 바뀌는 값으로 static을 선언하면 여러 스레드가 접근시 심각한 오류를 발생 시킬 수 있음
+ 
+## 메모리 릭.
+
+ + 이미 알고 있는 스태틱으로 선언된 리스트나 배열등에 값을 추가하면 ??? 릭 발생
+
+
+# 클래스 정보 - 07
+
+
+## reflection 
+
+ + 이 패키지에 있는 클래스들은 JVM에 로딩되어 있는 클래스와 메서드 정보 읽어 올 수 있음.
+
+## class 클래스
+
+ + 생성자는 따로없고, 클래스에 대한 정보를 얻을 때 사용
+ + Object 클래스에 있는 getClass() 메소드를 이용하는 것이 일반적
+
+## Method 클래스
+
+ + 메서드에 대한 정보를 얻을 수 있음
+ + 생성자가 없음으로 Class getMethods()  / GetDeclaredMethod() 메서드를 써야함.
+
+## Field 클래스
+
+ + 클래스에 있는 변수들의 정보 제공을 위해 사용됨 .
+
+## reflection 관련 클래스 잘못사용하면 ?
+
+ + if (src.getClass().getName().equals("java.math.BigDecimal")) {
+ + 미미하지만 성능의 영향을 주긴함 하나하나 모이면 .. instanceof 사용이 더빠를걸..
+
+
+    public String checkClass(Object src) {
+    if (src instanceof java.math.BigDecimal) {
+    // 데이터 처리
+    }
+
+
+## 정리
+
+ + 클래스의 메타정보는 JVM Perm 영역에 저장됨 . 
+
+
+
+
+
+# synchronized는 제대로 알고 쓰자 - 08
+
+## 스레드 
+
+ + 프로세스와 스레드는 1:다  관계 
+ + 프로세스에서 만들어 사용하고있는 메모리를 공유.
+
+
+## Thread / Runnable
+
+
+
+    class RunThreads {
+        public static void main(String[] args) {
+            Runnablelmpl ri = new Runnablelmpl ();
+            Thread Extends Thread ThreadExtends();
+            new Thread (ri).start();
+            te.start();
+        }
+    }
+
+
+## sleep(), wait(), join
+
+ + 진행중인 스레드를 대기하기 위한 메서드.
+ + 3가지 메서드 모두 예외를 던지도록 되어 있어 반드시 예외 처리 해줘야 됨. 
+
+
+
+### sleep()
+
+ + sleep(long millis) : 명시된 Ms 만큼 해당 스레드 대기. 정적 메서드임
+ + sleep(long millis, int nanos) : 명시된 Ms + 나노시간만큼 해당 스레드 대기. 정적 메서드
+
+### wait()
+
+ + 모든 클래스의 부모 클래스인 Object 클래스에 선언되 있음 , 어떤 클래스도 사용 가능,
+ + 명시된 만큼 스레드 대기.
+ + sleep 과 다른점은 매개 변수 , 아무런 매개 변수를 지정하지않으면 notify/nofityAll 매서드가 호출될때 까지 대기함.
+
+### join()
+
+ + 메서드는 명시된 시간만큼 해당 스레드가 죽기를 기다림.
+ + 아무런 매개변수 없으면 죽을때 까지 계속 대기.
+
+
+## interrupt(), nofify(), notifyAll()
+ 
+ 
+
+### interrupt()
+
+ + 앞서 3개 메서드를 모두 멈출 수 있는 유일한 메서드는 interrupt()
+ + 호출되면 중된 스레드는 InterruptedException 발생 
+ + 수행확인은 interrupted() / isInterrupted() 메서드 
+ + 전자는 스레드의 상태를 변경 , 후자는 상태만 리턴.
+ + isAlive() 스레드 생존 여부 확인 . 
+
+
+### notify() / notifyAll()
+
+ + wait()를 멈추기 위한 메서드.
+ + 전자는 객체의 모니터 관련 단일 스레드를 깨우고
+ + 후자는 객체의 모니터와 관련있는 모든 스레드를 깨운다.
+
+
+## interrupt() 메서드는 절대적인 것이 아님
+
+ + Interrupt() 메서드 호출하여 특정 메서드 중지시키려할때 
+ + 항상 멈추는 것은 아님.
+ + interrupt() 메서드는 해당 스레드가 block 되거나 특정 상태에만 동작함.
+ + 그래서 중간에 sleep 을넣어주거나 계속되는 스레드를 잠시 멈출때 작동함.
+
+
+
+    public void run() {
+                while (flag) {
+                value++ j if (value == Integer.MAX_VALUE) {
+                value = Integer.MIN_V ALUEj System.out.println("MAX_V ALUE reached! ! !") 
+                    try {
+                    Thread.sleep(0, 1) j
+                    } catch (Exception e) {
+                    break
+                    }
+            }
+        }
+    }
+
+
+## synchronized 이해
+
+ + 동사 : 동시에 일어나다 , 동시에 진행하다.
+ + 하나의 객체에 여러 객체가 동시에 접근 처리하는 상황이 발생할때 사용함.
+ + 천천히 한명씩들어 와! 메서드나 블록을 제어 .
+
+### 언제 사용해 ?
+
+ + 하나의 객체를 여러 스레드에서 동시 사용할 경우나
+ + static으로 선언한 객체를 여러 스레드에서 동시에 사용할 경우에 사용해야됨 .
+
+
+
+## 동기화 - 동일객체 접근 시
+
+ + 필요한 부분에만 동기화를 사용해 성능을 줄이자
+
+
+## 동기화 - static 사용시 
+
+ + 클래스 변수에 값이 일정하지않음 -> 메서드도 클래스 메서드를 참조하도록 static 
+
+
+    public class ContributionStatic {
+    private static int amount = 0;
+    
+        public static synchronized void donate() {
+        }
+    
+        amount++;
+    
+        public int getTotal() {
+            return amount;
+        }
+    }
+
+
+
+## 동기화를 위해 자바에서 제공하는 것.
+
+
+### java.util.concurrent
+
+ + LOCK : 실행 중인 스레드를 간단한 방법으로 정지시켰다 실행함, 상호 참조로 데드락 피함
+ + Executors: 스레드를 더 효율적을 관리하는 클래스들 제공 / 스레드 풀도 제공
+ + Concurrent 콜렉션 : 앞서 살펴본 콜렉션의 클래스들 제공
+ + Atomic 변수: 동기화가 되어있는 변수 제공 , 사용시 synchronized 식별자를 메서드에 지정할 필요없이 사용
+
+
+
+## JVM내 Synchronization 동작
+
+
+ + 자바의 HtoSpot VM은 자바 모니터를 제공함으로서 스레드들이 상호 배제 프로토콜에 참여하게 돕는다.
+ + 자바 모니터는 잠기거나 풀린 상태중 하나이며 , 동일한 모니터에 진입한 여러 스레드들 중 한 시점에는 단 하나의 스레드만 모니터 가짐
+ + 정리 -> 모니터를 가진 스레드만 모니터에 의해 보호되는 영역에 들어가 작업
+ + 보호되는 영역 -> synchronized  
+ + jdk 5 부터 XX:+UseBiasedLocking 옵션을 통해 biased locking 기능 제공.
+ + 그 전까지는 대부분의 객체들이 하나의 스레드에 의해 잠기게 됬지만 , 이 옵션은 스레드가 자기 자신을 향하여 bias 됨
+ + 즉 이 상태가 되면 스레드는 많은 비용이 드는 인스트럭션 재배열 작업을 통해 잠김과 풀림 작업을 수행함. -> 진보된 적응 스피닝 기술을 사용해 처리량 개선한다 함.
+ + 동기화 성능이 보다 빠라짐.
+
+
+
+# IO 에서 발생하는 병목현상 - 10
+
+
+ + 잘못 사용하면 응답속도에 영향을 주는 부분 .
+
+
+## 기본적인 IO 처리
+
+
