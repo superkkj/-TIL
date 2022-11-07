@@ -49,4 +49,26 @@
 * [토비](https://github.com/superkkj/TIL/tree/main/tobi)
 * [자바튜닝](https://github.com/superkkj/TIL/blob/main/%EC%9E%90%EB%B0%94%ED%8A%9C%EB%8B%9D/%EC%9E%90%EB%B0%94%ED%8A%9C%EB%8B%9D.md)
 * [junit](https://github.com/superkkj/TIL/blob/main/junit/junit.md)
+
+
+## 객체지향
+
+* [OOP](https://github.com/superkkj/TIL/blob/main/OOP/OOP.md)
+
+
+
+## 계층형 구조 
+
+
+* [OOP](https://github.com/superkkj/TIL/blob/main/LayeredArchitecture/LayerdArchitecture.md)
+
+
+## API
+
+* [REST FUL](https://github.com/superkkj/TIL/blob/main/API/restFul.md)
+
+
+## DB
+
 * [Mysql퍼포먼스 최적화](https://github.com/superkkj/TIL/blob/main/Mysql%ED%8D%BC%ED%8F%AC%EB%A8%BC%EC%8A%A4%20%EC%B5%9C%EC%A0%81%ED%99%94/mysql.md)
+* [Transaction](hhttps://github.com/superkkj/TIL/blob/main/Transaction/%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98.md)
