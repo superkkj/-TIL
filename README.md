@@ -46,3 +46,7 @@
 
 
 * [스프링입문을위한자바객체지향의원리와 이해](https://github.com/superkkj/TIL/tree/main/%EC%8A%A4%ED%94%84%EB%A7%81%EC%9E%85%EB%AC%B8%EC%9D%84%EC%9C%84%ED%95%9C%EC%9E%90%EB%B0%94%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5%EC%9D%98%EC%9B%90%EB%A6%AC%EC%99%80%20%EC%9D%B4%ED%95%B4)
+* [토비](https://github.com/superkkj/TIL/tree/main/tobi)
+* [자바튜닝](https://github.com/superkkj/TIL/blob/main/%EC%9E%90%EB%B0%94%ED%8A%9C%EB%8B%9D/%EC%9E%90%EB%B0%94%ED%8A%9C%EB%8B%9D.md)
+* [junit](https://github.com/superkkj/TIL/blob/main/junit/junit.md)
+* [Mysql퍼포먼스 최적화](https://github.com/superkkj/TIL/blob/main/Mysql%ED%8D%BC%ED%8F%AC%EB%A8%BC%EC%8A%A4%20%EC%B5%9C%EC%A0%81%ED%99%94/mysql.md)
