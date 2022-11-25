@@ -23,10 +23,9 @@
 ## 단점
 
 * 타입이 안전하지 않다.
-
-![](img/Constant vs Literal/img_4.png)
-![](img/Constant vs Literal/img_5.png)
-
+* 
+![](img/ConstantVSLiteral/img_4.png)
+![](img/ConstantVSLiteral/img_5.png)
 오렌지를 건네야 할 메서드에 사과를 보내 고 동등 연산자(==)로 비교하더라도 컴파일러는 아무런 경고 메시지를 출력하 지않는다.
 
 
@@ -34,7 +33,7 @@
 * namespace가 없다
  접두어를 사용해 구분해야되는대 이름을 구분지어 정해줘야됨.. (ex EMLEMENT_MERCURY , PLANET_MERCURY)
 * 
-  ![img_3.png](img_3.png)
+![](img/ConstantVSLiteral/Img_6.png)
 
 과일 APPLE 과 기업 APPLE을 나타내야 된다면..?
 
@@ -55,8 +54,7 @@
 
 ## 대안 eunm Type (열거 타입)
 
-![img_2.png](img_2.png)
-
+![](img/ConstantVSLiteral/img_7.png)
 ### 특징
 
  열거 타입 자체가 클래스 임.
@@ -67,7 +65,7 @@
 
 예시 
 
-![img_4.png](img_4.png)
+![](img/ConstantVSLiteral/img_4.png)
 
 다른 상수그룹과 비교해 컴파일 시점에서 차단 가능 (Ex  : COMPANY_APPLE == FRUIT_APPLE)
 
@@ -75,7 +73,8 @@
   > Enum은 생성자를 가질 수 있고 필드 숫자만큼 순회함.
   > 
 
-![img_6.png](img_6.png) 그리고 접근 제어자는 Private 만 허용함 .
+
+그리고 접근 제어자는 Private 만 허용함 .
 
 
 참조 : https://opentutorials.org/course/1194/6091 , https://jaehun2841.github.io/2019/02/03/effective-java-item34/#Java%EC%9D%98-%EC%97%B4%EA%B1%B0-%ED%83%80%EC%9E%85

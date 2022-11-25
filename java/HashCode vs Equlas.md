@@ -1,12 +1,12 @@
 ## hashcode /equals 차이점 .
 
 
-![](img/hashcode VS equals/img_14.png)
+![](img/hashcodeVSequals/img_14.png)
 
 테스트 클래스를 만들어 equals 랑 hashCode 오버라이드
 
 
- ![](img/hashcode VS equals/img_16.png)
+ ![](img/hashcodeVSequals/img_16.png)
 
 
 ## equals
@@ -25,7 +25,7 @@
 
  ## hashCode
 
-![](img/hashcode VS equals/img_15.png)
+![](img/hashcodeVSequals/img_15.png)
 
   객체를 식별하는 하나의 정수 값. - >  객체의 메모리 번지를 이용해 객체 고유의 해시코드를 만들어 리턴
   같은 객체임을 나타내기위해선 동일한 hashcode를 가져야 함
@@ -45,7 +45,7 @@
  
 ## hashTable
 
-![](img/hashcode VS equals/img_18.png)
+![](img/hashcodeVSequals/img_18.png)
 
  작동원리 : 
    Key,value 형 태로 데이터를 저장함 . 이 때 해시함수를 이용해 key값 기준으로 고유식별값 해시값을 만듬, 이 값을 버킷에 저장.
@@ -58,13 +58,13 @@
 
     해결법 -> Open Addressing (개방 주소 방법 )   /  (Separate Chaining ) 분리 연결 방법
 
-![](img/hashcode VS equals/img_20.png)
+![](img/hashcodeVSequals/img_20.png)
 
-![](img/hashcode VS equals/img_21.png)
+![](img/hashcodeVSequals/img_21.png)
 
-![](img/hashcode VS equals/img_22.png)
+![](img/hashcodeVSequals/img_22.png)
 
-![](img/hashcode VS equals/img_17.png)
+![](img/hashcodeVSequals/img_17.png)
 
 
 + euqlas / hashcode 같이 오버라이드 해야 되는 이유.
@@ -74,7 +74,7 @@
  hashcode를 재정의 하지  않으면  같은 값 객체라도 해시 값이 다를 수 있음,   HashTable에서 해당 객체가 저장된 버킷 못찾음.
  equlas를 재정의 하지 않으면 해시값을 이용한 객체가 저장된 버킷을 찾을수 있지만, 해당 객체와 자신과 같은 객체인지 값을 비교못해 Null 리턴 
 
-![](img/hashcode VS equals/img_23.png)
+![](img/hashcodeVSequals/img_23.png)
  
 
  *출처 https://jisooo.tistory.com/entry/java-hashcode%EC%99%80-equals-%EB%A9%94%EC%84%9C%EB%93%9C%EB%8A%94-%EC%96%B8%EC%A0%9C-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B3%A0-%EC%99%9C-%EC%82%AC%EC%9A%A9%ED%95%A0%EA%B9%8C
